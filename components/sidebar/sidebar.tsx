@@ -16,7 +16,7 @@ type Sidebar = JSX.IntrinsicAttributes &
 
 type NavItem = { [x: string]: any; children?: any };
 
-export const Sidebar = (props: Sidebar) => (
+export const Sidebar = ({ ...props }: Sidebar) => (
   <Box
     as="nav"
     pos="fixed"
@@ -51,9 +51,7 @@ export const Sidebar = (props: Sidebar) => (
   </Box>
 );
 
-const NavItem = (props: NavItem) => {
-  const { children, ...rest } = props;
-
+const NavItem = ({ children, ...rest }: NavItem) => {
   return (
     <Flex width="100%" align="center" justify="center">
       <Link width="100%" _hover={{ textDecoration: 'none' }}>
