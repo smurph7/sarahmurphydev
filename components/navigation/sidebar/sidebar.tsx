@@ -83,38 +83,40 @@ export const Sidebar = ({ ...props }: Sidebar) => {
       {...props}
     >
       <Flex minHeight="100vh" width="100%" align="center" justify="center">
-        <Flex
-          width="100%"
-          px={6}
-          direction="column"
-          fontSize="md"
-          color="navy"
-          aria-label="Main Navigation"
-        >
-          {isMobile && isPageLoaded ? (
-            <MotionBox initial={false} animate={isOpen ? 'open' : 'closed'}>
-              <MotionBox
-                bg="white"
-                variants={sidebarVariant}
-                height="100%"
-                position="absolute"
-                width="100%"
-                top={0}
-                left={0}
-                bottom={0}
-                zIndex={-1}
-              />
-              <MenuToggle toggle={() => toggleOpen()} />
-              <MotionList variants={variants}>
+        {isPageLoaded && (
+          <Flex
+            width="100%"
+            px={6}
+            direction="column"
+            fontSize="md"
+            color="navy"
+            aria-label="Main Navigation"
+          >
+            {isMobile && isPageLoaded ? (
+              <MotionBox initial={false} animate={isOpen ? 'open' : 'closed'}>
+                <MotionBox
+                  bg="white"
+                  variants={sidebarVariant}
+                  height="100%"
+                  position="absolute"
+                  width="100%"
+                  top={0}
+                  left={0}
+                  bottom={0}
+                  zIndex={-1}
+                />
+                <MenuToggle toggle={() => toggleOpen()} />
+                <MotionList variants={variants}>
+                  <NavMenuItems />
+                </MotionList>
+              </MotionBox>
+            ) : (
+              <List>
                 <NavMenuItems />
-              </MotionList>
-            </MotionBox>
-          ) : (
-            <List>
-              <NavMenuItems />
-            </List>
-          )}
-        </Flex>
+              </List>
+            )}
+          </Flex>
+        )}
       </Flex>
     </Box>
   );
