@@ -53,7 +53,11 @@ export const Sidebar = ({ ...props }: Sidebar) => (
 const NavItem = ({ children, ...rest }: NavItem) => {
   return (
     <Flex width="100%" align="center" justify="center">
-      <Link width="100%" _hover={{ textDecoration: 'none' }}>
+      <Link
+        width="100%"
+        _hover={{ textDecoration: 'none' }}
+        style={{ userSelect: 'none' }}
+      >
         <Flex
           py={3}
           width="100%"
