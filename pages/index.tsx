@@ -35,6 +35,7 @@ const Home: NextPage = () => {
               bottom: 50
             }}
             dragSnapToOrigin
+            dragPropagation
             cursor="pointer"
           >
             <Flex>
