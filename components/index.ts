@@ -1,3 +1,3 @@
-export { Sidebar } from './sidebar';
+export { Sidebar, NavItem } from './navigation';
+
 export { MotionLetter } from './motionLetter';
-export { NavItem } from './navItem';

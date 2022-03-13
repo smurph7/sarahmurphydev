@@ -1,20 +1,42 @@
-import { Flex, Link, ListItem } from '@chakra-ui/react';
+import { Flex, Link, ListItem, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 type NavItem = { [x: string]: any; children?: any };
 
 const MotionListItem = motion(ListItem);
 
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    pointerEvents: 'auto',
+    transition: {
+      y: { stiffness: 1000, velocity: -100 }
+    }
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    pointerEvents: 'none',
+    transition: {
+      y: { stiffness: 1000 }
+    }
+  }
+};
+
 export const NavItem = ({ children, ...rest }: NavItem) => {
+  const variant = useBreakpointValue({ base: variants, md: {} });
+
   return (
     <MotionListItem
+      variants={variant}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', bounce: 0.7 }}
     >
       <Flex width="100%" align="center" justify="center">
         <Link
-          width="100%"
+          width={['70%', '100%']}
           _hover={{ textDecoration: 'none' }}
           style={{ userSelect: 'none' }}
         >
