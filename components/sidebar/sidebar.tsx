@@ -1,11 +1,12 @@
 import {
   Box,
   Flex,
-  Link,
+  List,
   ChakraProps,
   OmitCommonProps
 } from '@chakra-ui/react';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { NavItem } from '../navItem';
 
 type Sidebar = JSX.IntrinsicAttributes &
   OmitCommonProps<
@@ -13,8 +14,6 @@ type Sidebar = JSX.IntrinsicAttributes &
     keyof ChakraProps
   > &
   ChakraProps & { as?: 'div' | undefined };
-
-type NavItem = { [x: string]: any; children?: any };
 
 export const Sidebar = ({ ...props }: Sidebar) => (
   <Box
@@ -33,50 +32,20 @@ export const Sidebar = ({ ...props }: Sidebar) => (
     <Flex minHeight="100vh" align="center" justify="center" width="100%">
       <Flex
         width="100%"
-        px={4}
-        py={5}
+        px={6}
         direction="column"
         as="nav"
         fontSize="md"
         color="navy"
         aria-label="Main Navigation"
       >
-        <NavItem>About Me</NavItem>
-        <NavItem>Experience</NavItem>
-        <NavItem>Projects</NavItem>
-        <NavItem>Contact</NavItem>
+        <List>
+          <NavItem>About Me</NavItem>
+          <NavItem>Experience</NavItem>
+          <NavItem>Projects</NavItem>
+          <NavItem>Contact</NavItem>
+        </List>
       </Flex>
     </Flex>
   </Box>
 );
-
-const NavItem = ({ children, ...rest }: NavItem) => {
-  return (
-    <Flex width="100%" align="center" justify="center">
-      <Link
-        width="100%"
-        _hover={{ textDecoration: 'none' }}
-        style={{ userSelect: 'none' }}
-      >
-        <Flex
-          py={3}
-          width="100%"
-          align="center"
-          justify="center"
-          _hover={{
-            bg: 'freshLemon',
-            color: 'navy',
-            borderRadius: '4px'
-          }}
-          role="group"
-          fontWeight="semibold"
-          fontSize="lg"
-          transition=".1s ease"
-          {...rest}
-        >
-          {children}
-        </Flex>
-      </Link>
-    </Flex>
-  );
-};
