@@ -27,6 +27,7 @@ const Home: NextPage = () => {
       >
         <Stack align="start" gap={3}>
           <MotionBox
+            zIndex={1}
             drag
             dragConstraints={{
               top: -50,

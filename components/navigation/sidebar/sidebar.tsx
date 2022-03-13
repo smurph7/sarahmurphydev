@@ -55,16 +55,26 @@ const sidebarVariant = {
 export const Sidebar = ({ ...props }: Sidebar) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isMobile] = useMediaQuery('(max-width: 480px)');
-
+  const [zIndex, setZIndex] = React.useState('0');
   const isPageLoaded = useIsPageLoaded();
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      setTimeout(() => {
+        setZIndex('0');
+      }, 1000);
+    } else {
+      setZIndex('sticky');
+    }
+  }, [isOpen]);
 
   return (
     <Box
       as="nav"
       position="fixed"
+      zIndex={zIndex}
       top={0}
       left={0}
-      zIndex="sticky"
       pb={10}
       overflowX="hidden"
       overflowY="auto"
