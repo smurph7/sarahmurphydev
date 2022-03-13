@@ -11,6 +11,7 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { motion, useCycle } from 'framer-motion';
 
 import { NavMenuItems, MenuToggle } from '..';
+import { useIsPageLoaded } from 'components/hooks/useIsPageLoaded';
 
 type Sidebar = JSX.IntrinsicAttributes &
   OmitCommonProps<
@@ -55,6 +56,8 @@ export const Sidebar = ({ ...props }: Sidebar) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isMobile] = useMediaQuery('(max-width: 480px)');
 
+  const isPageLoaded = useIsPageLoaded();
+
   return (
     <Box
       as="nav"
@@ -78,7 +81,7 @@ export const Sidebar = ({ ...props }: Sidebar) => {
           color="navy"
           aria-label="Main Navigation"
         >
-          {isMobile ? (
+          {isMobile && isPageLoaded ? (
             <MotionBox initial={false} animate={isOpen ? 'open' : 'closed'}>
               <MotionBox
                 bg="white"
