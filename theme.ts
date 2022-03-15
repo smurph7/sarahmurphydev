@@ -8,7 +8,7 @@ type BrandColors = {
   navy: string;
 };
 
-const colors: BrandColors = {
+export const colors: BrandColors = {
   lightLime: '#abd699',
   freshLemon: '#ffe26a',
   teal: '#75c9b7',
