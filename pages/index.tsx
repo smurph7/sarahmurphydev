@@ -2,15 +2,32 @@ import * as React from 'react';
 import type { NextPage } from 'next';
 import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 
-import { Sidebar, MotionLetter } from '~/components';
+import { Sidebar, MotionLetter, WordCloud } from '~/components';
 
 const MotionBox = motion(Box);
+
+const Section = ({ children, ...props }: any): JSX.Element => {
+  return (
+    <Flex
+      as="section"
+      ml={{ base: 0, md: 60 }}
+      p={4}
+      minHeight="inherit"
+      direction="column"
+      justify="center"
+      {...props}
+    >
+      {children}
+    </Flex>
+  );
+};
 
 const Home: NextPage = () => {
   return (
     <Box
-      as="section"
       bg="lightLime"
       p={4}
       color="navy"
@@ -18,13 +35,7 @@ const Home: NextPage = () => {
       minHeight="100vh"
     >
       <Sidebar />
-      <Flex
-        ml={{ base: 0, md: 60 }}
-        p={4}
-        minHeight="inherit"
-        direction="column"
-        justify="center"
-      >
+      <Section>
         <Stack align="start" gap={3}>
           <MotionBox
             zIndex={1}
@@ -68,7 +79,16 @@ const Home: NextPage = () => {
             Contact me
           </Button>
         </Stack>
-      </Flex>
+      </Section>
+      <Section justify="start" align="center">
+        <Box height={[350, 500]} width={[300, 500]} borderRadius="50%">
+          <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
+            <fog attach="fog" args={['#202025', 0, 80]} />
+            <WordCloud count={5} radius={20} />
+            <OrbitControls enableZoom={false} />
+          </Canvas>
+        </Box>
+      </Section>
     </Box>
   );
 };
