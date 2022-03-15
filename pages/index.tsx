@@ -118,8 +118,8 @@ const Home: NextPage = () => {
                     p={4}
                   >
                     <Text color="navy">
-                      I have excellent capability in terms of technology skills
-                      and knowledge with practical application in a business
+                      Excellent capability in terms of technology skills and
+                      knowledge, with practical application in a business
                       environment.
                     </Text>
                   </Flex>
@@ -131,10 +131,11 @@ const Home: NextPage = () => {
                     borderRadius="2xl"
                     boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
                     p={4}
+                    direction="column"
                   >
                     <Text color="navy">
-                      I have considerable experience in a variety of roles -
-                      from technical to business and systems analysis to project
+                      Considerable experience in a variety of roles - from
+                      technical to business and systems analysis to project
                       coordination - and environments from large scale
                       consulting and financial services to small innovative
                       start-ups.
@@ -150,11 +151,9 @@ const Home: NextPage = () => {
                     p={4}
                   >
                     <Text color="navy">
-                      I am a quick learner with an excitement for and practical
-                      experience in learning development languages and software
-                      and then training others. I have received outstanding
-                      feedback from students for my leadership in an agile
-                      software development program.
+                      Quick &amp; eager learner with practical experience in
+                      learning development languages and software and training
+                      others.
                     </Text>
                   </Flex>
                 </Flex>

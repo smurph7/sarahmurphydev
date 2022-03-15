@@ -54,9 +54,9 @@ const Word = ({
 export const WordCloud = ({ count = 4, radius = 20 }) => {
   const words = React.useMemo(() => {
     const skills = [
-      'TypeScript',
-      'JavaScript',
       'ReactJS',
+      'JavaScript',
+      'TypeScript',
       'React Query',
       'Git',
       'Storybook',
@@ -66,7 +66,7 @@ export const WordCloud = ({ count = 4, radius = 20 }) => {
       'SQL',
       'Next.js',
       'ES6',
-      'React Hooks',
+      'Agile',
       'HTML',
       'CSS',
       'npm',
@@ -75,7 +75,7 @@ export const WordCloud = ({ count = 4, radius = 20 }) => {
       'Cypress',
       'React Testing Library',
       'TDD',
-      'Agile',
+      'React Hooks',
       'CI/CD'
     ];
     const temp = [];
