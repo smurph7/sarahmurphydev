@@ -20,7 +20,7 @@ const Word = ({
     'material-toneMapped': false
   };
 
-  const ref = React.useRef();
+  const ref = React.useRef<any>();
 
   const [hovered, setHovered] = React.useState(false);
   const over = (e: { stopPropagation: () => any }) => (
