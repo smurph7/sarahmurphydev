@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import * as React from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
+
 import { colors } from 'theme';
 
 const Word = ({
@@ -26,15 +27,6 @@ const Word = ({
     e.stopPropagation(), setHovered(true)
   );
   const out = () => setHovered(false);
-
-  React.useEffect(() => {
-    if (hovered) {
-      document.body.style.cursor = 'pointer';
-    }
-    return function cleanup() {
-      document.body.style.cursor = 'auto';
-    };
-  }, [hovered]);
 
   useFrame(({ camera }) => {
     ref?.current?.quaternion?.copy(camera.quaternion);

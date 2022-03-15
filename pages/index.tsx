@@ -81,11 +81,17 @@ const Home: NextPage = () => {
         </Stack>
       </Section>
       <Section justify="start" align="center">
-        <Box height={[350, 500]} width={[300, 500]} borderRadius="50%">
+        <Box
+          height={[350, 500]}
+          width={[300, 500]}
+          borderRadius="50%"
+          _hover={{ cursor: 'grab' }}
+          _active={{ cursor: 'grabbing' }}
+        >
           <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 35], fov: 90 }}>
             <fog attach="fog" args={['#202025', 0, 80]} />
             <WordCloud count={5} radius={20} />
-            <OrbitControls enableZoom={false} />
+            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={5} />
           </Canvas>
         </Box>
       </Section>
