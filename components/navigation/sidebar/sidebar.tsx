@@ -107,7 +107,7 @@ export const Sidebar = ({ ...props }: Sidebar) => {
                 />
                 <MenuToggle toggle={() => toggleOpen()} />
                 <MotionList variants={variants}>
-                  <NavMenuItems />
+                  <NavMenuItems toggle={() => toggleOpen()} />
                 </MotionList>
               </MotionBox>
             ) : (

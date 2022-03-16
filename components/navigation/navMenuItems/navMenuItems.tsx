@@ -7,11 +7,11 @@ export const navItems = [
   { title: 'Contact', linkId: 'contact' }
 ];
 
-export const NavMenuItems = () => {
+export const NavMenuItems = ({ toggle }: { toggle?: () => void }) => {
   return (
     <>
       {navItems.map(navItem => (
-        <NavItem key={navItem.title} linkId={navItem.linkId}>
+        <NavItem key={navItem.title} linkId={navItem.linkId} onClick={toggle}>
           {navItem.title}
         </NavItem>
       ))}
