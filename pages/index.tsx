@@ -93,7 +93,7 @@ const Home: NextPage = () => {
       </Section>
       <Section id="about" gap={3} justify="center">
         <Heading color="white" size="lg" fontStyle="italic">
-          "HERE I AM, HEAR ME ROAR"
+          &quot;HERE I AM, HEAR ME ROAR&quot;
         </Heading>
         <Heading color="white" size="2xl">
           About Me
