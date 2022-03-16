@@ -54,7 +54,7 @@ const sidebarVariant = {
 
 export const Sidebar = ({ ...props }: Sidebar) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [isMobile] = useMediaQuery('(max-width: 480px)');
+  const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [zIndex, setZIndex] = React.useState('0');
   const isPageLoaded = useIsPageLoaded();
 
@@ -78,8 +78,8 @@ export const Sidebar = ({ ...props }: Sidebar) => {
       pb={10}
       overflowX="hidden"
       overflowY="auto"
-      borderRightWidth={[null, '1px']}
-      width={['100%', 60]}
+      borderRightWidth={[null, null, '1px']}
+      width={['100%', '100%', 60]}
       {...props}
     >
       <Flex minHeight="100vh" width="100%" align="center" justify="center">
