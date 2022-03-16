@@ -81,6 +81,9 @@ const Home: NextPage = () => {
       <Section id="about">
         <AboutMe />
       </Section>
+      <Section id="experience">Experience</Section>
+      <Section id="projects">Projects</Section>
+      <Section id="contact">Contact Me</Section>
     </Box>
   );
 };

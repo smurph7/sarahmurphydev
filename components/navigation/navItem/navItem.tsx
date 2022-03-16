@@ -1,7 +1,8 @@
 import { Flex, Link, ListItem, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { Link as ScrollLink } from 'react-scroll';
 
-type NavItem = { [x: string]: any; children?: any };
+type NavItem = { linkId: string; [x: string]: any; children: any };
 
 const MotionListItem = motion(ListItem);
 
@@ -24,7 +25,7 @@ const variants = {
   }
 };
 
-export const NavItem = ({ children, ...rest }: NavItem) => {
+export const NavItem = ({ linkId, children, ...rest }: NavItem) => {
   const variant = useBreakpointValue({ base: variants, md: {} });
 
   return (
@@ -40,24 +41,26 @@ export const NavItem = ({ children, ...rest }: NavItem) => {
           _hover={{ textDecoration: 'none' }}
           style={{ userSelect: 'none' }}
         >
-          <Flex
-            py={2}
-            width="100%"
-            align="center"
-            justify="center"
-            _hover={{
-              bg: 'freshLemon',
-              color: 'navy',
-              borderRadius: '4px'
-            }}
-            role="group"
-            fontWeight="semibold"
-            fontSize="lg"
-            transition=".1s ease"
-            {...rest}
-          >
-            {children}
-          </Flex>
+          <ScrollLink to={linkId} smooth={true} spy={true} offset={-40}>
+            <Flex
+              py={2}
+              width="100%"
+              align="center"
+              justify="center"
+              _hover={{
+                bg: 'freshLemon',
+                color: 'navy',
+                borderRadius: '4px'
+              }}
+              role="group"
+              fontWeight="semibold"
+              fontSize="lg"
+              transition=".1s ease"
+              {...rest}
+            >
+              {children}
+            </Flex>
+          </ScrollLink>
         </Link>
       </Flex>
     </MotionListItem>
