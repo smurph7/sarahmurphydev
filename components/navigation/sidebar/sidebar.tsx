@@ -61,7 +61,7 @@ export const Sidebar = ({ ...props }: Sidebar) => {
   React.useEffect(() => {
     if (!isOpen) {
       setTimeout(() => {
-        setZIndex('0');
+        setZIndex('2');
       }, 1000);
     } else {
       setZIndex('sticky');
