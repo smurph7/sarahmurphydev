@@ -55,31 +55,66 @@ const sidebarVariant = {
 export const Sidebar = ({ ...props }: Sidebar) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isMobile] = useMediaQuery('(max-width: 768px)');
-  const [zIndex, setZIndex] = React.useState('0');
+  const [zIndexMobile, setZIndexMobile] = React.useState('0');
   const isPageLoaded = useIsPageLoaded();
 
   React.useEffect(() => {
     if (!isOpen) {
       setTimeout(() => {
-        setZIndex('2');
+        setZIndexMobile('0');
       }, 1000);
     } else {
-      setZIndex('sticky');
+      setZIndexMobile('100');
     }
-  }, [isOpen]);
+  }, [isOpen, isMobile]);
 
-  return (
+  return isMobile ? (
     <Box
       as="nav"
       position="fixed"
-      zIndex={zIndex}
+      top={0}
+      left={0}
+      width="100%"
+      zIndex={zIndexMobile}
+    >
+      <Flex minHeight="100vh" width="100%" align="center" justify="center">
+        {isPageLoaded && (
+          <MotionBox
+            width="100%"
+            initial={false}
+            animate={isOpen ? 'open' : 'closed'}
+          >
+            <MotionBox
+              bg="white"
+              variants={sidebarVariant}
+              position="absolute"
+              height="100%"
+              width="100%"
+              top={0}
+              left={0}
+              bottom={0}
+              zIndex={-1}
+            />
+            <MenuToggle toggle={() => toggleOpen()} />
+            <MotionList variants={variants}>
+              <NavMenuItems toggle={() => toggleOpen()} />
+            </MotionList>
+          </MotionBox>
+        )}
+      </Flex>
+    </Box>
+  ) : (
+    <Box
+      as="nav"
+      position="fixed"
+      zIndex="sticky"
       top={0}
       left={0}
       pb={10}
       overflowX="hidden"
       overflowY="auto"
-      borderRightWidth={[null, null, '1px']}
-      width={['100%', '100%', 60]}
+      borderRightWidth="1px"
+      width={60}
       {...props}
     >
       <Flex minHeight="100vh" width="100%" align="center" justify="center">
@@ -92,29 +127,9 @@ export const Sidebar = ({ ...props }: Sidebar) => {
             color="navy"
             aria-label="Main Navigation"
           >
-            {isMobile && isPageLoaded ? (
-              <MotionBox initial={false} animate={isOpen ? 'open' : 'closed'}>
-                <MotionBox
-                  bg="white"
-                  variants={sidebarVariant}
-                  height="100%"
-                  position="absolute"
-                  width="100%"
-                  top={0}
-                  left={0}
-                  bottom={0}
-                  zIndex={-1}
-                />
-                <MenuToggle toggle={() => toggleOpen()} />
-                <MotionList variants={variants}>
-                  <NavMenuItems toggle={() => toggleOpen()} />
-                </MotionList>
-              </MotionBox>
-            ) : (
-              <List>
-                <NavMenuItems />
-              </List>
-            )}
+            <List>
+              <NavMenuItems />
+            </List>
           </Flex>
         )}
       </Flex>
