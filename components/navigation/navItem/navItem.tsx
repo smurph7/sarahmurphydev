@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Flex, Link, ListItem, useBreakpointValue } from '@chakra-ui/react';
+import { Flex, Button, ListItem, useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -53,7 +53,9 @@ export const NavItem = ({ linkId, children, ...rest }: NavItem) => {
       transition={{ type: 'spring', bounce: 0.5 }}
     >
       <Flex width="100%" align="center" justify="center">
-        <Link
+        <Button
+          variant="unstyled"
+          _focus={{ outline: 'none', border: 'none' }}
           width={['70%', '100%']}
           style={{ userSelect: 'none' }}
           _hover={{ textDecoration: 'none' }}
@@ -91,7 +93,7 @@ export const NavItem = ({ linkId, children, ...rest }: NavItem) => {
               {children}
             </Flex>
           </ScrollLink>
-        </Link>
+        </Button>
       </Flex>
     </MotionListItem>
   );
