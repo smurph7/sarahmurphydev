@@ -4,7 +4,7 @@ import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
-import { Sidebar, MotionLetter, AboutMe } from '~/components';
+import { Sidebar, MotionLetter, AboutMe, Contact } from '~/components';
 
 const MotionBox = motion(Box);
 
@@ -85,7 +85,9 @@ const Home: NextPage = () => {
       </Section>
       <Section id="experience">Experience</Section>
       <Section id="projects">Projects</Section>
-      <Section id="contact">Contact Me</Section>
+      <Section id="contact">
+        <Contact />
+      </Section>
     </Box>
   );
 };
