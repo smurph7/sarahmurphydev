@@ -13,6 +13,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.6",
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@react-three/drei": "^8.16.5",
