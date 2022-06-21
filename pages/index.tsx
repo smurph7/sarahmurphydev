@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { NextPage } from 'next';
 import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { Link as ScrollLink } from 'react-scroll';
 
 import { Sidebar, MotionLetter, AboutMe } from '~/components';
 
@@ -33,7 +34,7 @@ const Home: NextPage = () => {
       minHeight="100vh"
     >
       <Sidebar />
-      <Section>
+      <Section id="home">
         <Stack align="start" gap={3}>
           <MotionBox
             drag
@@ -67,14 +68,16 @@ const Home: NextPage = () => {
               </Flex>
             </Flex>
           </MotionBox>
-          <Button
-            color="white"
-            size="md"
-            variant="outline"
-            _hover={{ bg: 'freshLemon', color: 'navy' }}
-          >
-            Contact me
-          </Button>
+          <ScrollLink to="contact" smooth={true} spy={true} offset={-40}>
+            <Button
+              color="white"
+              size="md"
+              variant="outline"
+              _hover={{ bg: 'freshLemon', color: 'navy' }}
+            >
+              Contact me
+            </Button>
+          </ScrollLink>
         </Stack>
       </Section>
       <Section id="about">
