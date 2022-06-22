@@ -1,26 +1,10 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { Toaster } from 'react-hot-toast';
 
-import { Sidebar, AboutMe, Contact, Home, Logo } from '~/components';
-
-const Section = ({ children, ...props }: any): JSX.Element => {
-  return (
-    <Flex
-      as="section"
-      ml={{ base: 0, md: 60 }}
-      p={4}
-      minHeight="inherit"
-      direction="column"
-      justify="center"
-      {...props}
-    >
-      {children}
-    </Flex>
-  );
-};
+import { Sidebar, AboutMe, Contact, Home, Logo, Section } from '~/components';
 
 const SitePage: NextPage = () => {
   return (
