@@ -1,5 +1,13 @@
 import * as React from 'react';
-import { Box, Flex, Heading, Text, Icon } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Icon,
+  UnorderedList,
+  ListItem
+} from '@chakra-ui/react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { IoBusiness } from 'react-icons/io5';
@@ -18,7 +26,9 @@ const AboutBubble = ({ icon, text }: { icon: IconType; text: string }) => (
       boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
       p={4}
     >
-      <Text color="navy">{text}</Text>
+      <Text color="navy" fontSize="lg">
+        {text}
+      </Text>
     </Flex>
   </Flex>
 );
@@ -39,11 +49,25 @@ export const AboutMe = () => (
           pl={0}
           width={['100%', '100%', '100%', '100%', '80%']}
         >
-          <Text color="navy" fontSize="xl">
-            With 4 years of experience and a deeper focus in front end
-            development, I am passionate about building responsive,
-            user-friendly and performant web apps.
-          </Text>
+          <UnorderedList spacing={2}>
+            <ListItem>
+              <Text color="navy" fontSize="xl">
+                Experience deeply focused on front end development
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text color="navy" fontSize="xl">
+                Passionate about building responsive, user-friendly and
+                performant web apps
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text color="navy" fontSize="xl">
+                Interested in working on challenging projects with positive
+                people
+              </Text>
+            </ListItem>
+          </UnorderedList>
         </Flex>
         <Flex
           gap={[5, 5, 5, 5, 0]}
