@@ -8,7 +8,11 @@ export const navItems = [
   { title: 'Contact', linkId: 'contact' }
 ];
 
-export const NavMenuItems = ({ toggle }: { toggle?: () => void }) => {
+export const NavMenuItems = ({
+  toggle
+}: {
+  toggle?: () => void;
+}): JSX.Element => {
   return (
     <Stack gap={5}>
       <Box>

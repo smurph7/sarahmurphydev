@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 
-type NavItem = { linkId: string; [x: string]: any; children: any };
+type NavItem = { linkId: string; [x: string]: any; children: React.ReactNode };
 
 const MotionListItem = motion(ListItem);
 const MotionFlex = motion(Flex);
@@ -35,7 +35,7 @@ const variants = {
   }
 };
 
-export const SocialMediaLinks = () => {
+export const SocialMediaLinks = (): JSX.Element => {
   const variant = useBreakpointValue({ base: variants, md: {} });
 
   return (
@@ -57,7 +57,11 @@ export const SocialMediaLinks = () => {
   );
 };
 
-export const NavItem = ({ linkId, children, ...rest }: NavItem) => {
+export const NavItem = ({
+  linkId,
+  children,
+  ...rest
+}: NavItem): JSX.Element => {
   const variant = useBreakpointValue({ base: variants, md: {} });
 
   const activeLinkStyle = {

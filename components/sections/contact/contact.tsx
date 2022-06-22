@@ -27,7 +27,7 @@ type FormInputValues = {
   input: JSX.Element;
 };
 
-export const Contact = () => (
+export const Contact = (): JSX.Element => (
   <Stack gap={12}>
     <Stack gap={1}>
       <Heading color="white" size="2xl">
@@ -51,7 +51,7 @@ export const Contact = () => (
   </Stack>
 );
 
-const ContactForm = () => {
+const ContactForm = (): JSX.Element => {
   const {
     handleSubmit,
     register,
@@ -166,7 +166,7 @@ const ContactForm = () => {
   );
 };
 
-const FormInput = ({ label, error, input }: FormInputValues) => (
+const FormInput = ({ label, error, input }: FormInputValues): JSX.Element => (
   <Flex align="center" width="100%">
     <Flex direction="column" width="100%">
       <FormControl isInvalid={!!error}>

@@ -1,1 +1,1 @@
-export const Experience = () => {};
+export const Experience = (): JSX.Element => <></>;

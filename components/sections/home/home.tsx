@@ -7,7 +7,7 @@ import { MotionLetter } from '~/components';
 
 const MotionBox = motion(Box);
 
-export const Home = () :JSX.Element => {
+export const Home = (): JSX.Element => {
   return (
     <Stack align="start" gap={3}>
       <MotionBox

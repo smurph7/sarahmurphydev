@@ -7,7 +7,7 @@ type MotionLetter = {
 
 const MotionBox = motion(Box);
 
-export const MotionLetter = ({ letter }: MotionLetter) => (
+export const MotionLetter = ({ letter }: MotionLetter): JSX.Element => (
   <MotionBox
     whileHover={{ scale: 1.4 }}
     whileTap={{ scale: 1.2 }}

@@ -52,7 +52,7 @@ const sidebarVariant = {
   }
 };
 
-export const Sidebar = ({ ...props }: Sidebar) => {
+export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const [zIndexMobile, setZIndexMobile] = React.useState('0');

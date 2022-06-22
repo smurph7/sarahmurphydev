@@ -6,7 +6,7 @@ type PathProps = JSX.IntrinsicAttributes &
   SVGMotionProps<SVGPathElement> &
   React.RefAttributes<SVGPathElement>;
 
-const Path = (props: PathProps) => (
+const Path = (props: PathProps): JSX.Element => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
@@ -16,7 +16,7 @@ const Path = (props: PathProps) => (
   />
 );
 
-export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
+export const MenuToggle = ({ toggle }: { toggle: () => void }): JSX.Element => (
   <Button
     variant="unstyled"
     onClick={toggle}

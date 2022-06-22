@@ -17,7 +17,13 @@ import { IconType } from 'react-icons/lib';
 
 import { WordCloud } from '~/components';
 
-const AboutBubble = ({ icon, text }: { icon: IconType; text: string }) => (
+const AboutBubble = ({
+  icon,
+  text
+}: {
+  icon: IconType;
+  text: string;
+}): JSX.Element => (
   <Flex justify="start" align="center" gap={[3, 5]}>
     <Icon as={icon} boxSize={[7, 8]} />
     <Flex
@@ -33,7 +39,7 @@ const AboutBubble = ({ icon, text }: { icon: IconType; text: string }) => (
   </Flex>
 );
 
-export const AboutMe = () => (
+export const AboutMe = (): JSX.Element => (
   <Flex gap={3} direction="column">
     <Heading color="white" fontSize={['xl', '2xl']} fontStyle="italic">
       &quot;HERE I AM, HEAR ME ROAR&quot;

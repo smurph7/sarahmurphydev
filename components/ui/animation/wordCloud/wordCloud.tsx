@@ -11,7 +11,7 @@ const Word = ({
 }: {
   position: THREE.Vector3;
   children: string;
-}) => {
+}): JSX.Element => {
   const color = new THREE.Color();
   const fontProps = {
     fontSize: 2.5,
