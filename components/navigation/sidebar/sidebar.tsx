@@ -59,6 +59,14 @@ export const Sidebar = ({ ...props }: Sidebar) => {
   const isPageLoaded = useIsPageLoaded();
 
   React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
+
+  React.useEffect(() => {
     if (!isOpen) {
       setTimeout(() => {
         setZIndexMobile('0');
@@ -66,7 +74,7 @@ export const Sidebar = ({ ...props }: Sidebar) => {
     } else {
       setZIndexMobile('100');
     }
-  }, [isOpen, isMobile]);
+  }, [isOpen]);
 
   if (!isPageLoaded) {
     return <></>;
