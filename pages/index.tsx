@@ -69,16 +69,18 @@ const Home: NextPage = () => {
               </Flex>
             </Flex>
           </MotionBox>
-          <ScrollLink to="contact" smooth={true} spy={true} offset={-40}>
-            <Button
-              color="white"
-              size="md"
-              variant="outline"
-              _hover={{ bg: 'freshLemon', color: 'navy' }}
-            >
-              Contact me
-            </Button>
-          </ScrollLink>
+          <Box zIndex={1}>
+            <ScrollLink to="contact" smooth={true} spy={true} offset={-40}>
+              <Button
+                color="white"
+                size="md"
+                variant="outline"
+                _hover={{ bg: 'freshLemon', color: 'navy' }}
+              >
+                Contact me
+              </Button>
+            </ScrollLink>
+          </Box>
         </Stack>
       </Section>
       <Section id="about">
