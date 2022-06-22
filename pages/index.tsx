@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
@@ -27,77 +28,83 @@ const Section = ({ children, ...props }: any): JSX.Element => {
 
 const Home: NextPage = () => {
   return (
-    <Box
-      bg="lightLime"
-      p={4}
-      color="navy"
-      bgGradient="linear(to-br, lightLime, brandTeal)"
-      minHeight="100vh"
-    >
-      <Sidebar />
-      <Section id="home">
-        <Stack align="start" gap={3}>
-          <MotionBox
-            drag
-            dragConstraints={{
-              top: -50,
-              left: -20,
-              right: 80,
-              bottom: 50
-            }}
-            dragSnapToOrigin
-            dragPropagation
-            cursor="pointer"
-          >
-            <Flex>
-              <MotionLetter letter="H" />
-              <MotionLetter letter="i" />
-              <MotionLetter letter="," />
-            </Flex>
-            <Flex gap={4}>
+    <>
+      <Head>
+        <title>Sarah Murphy</title>
+        <link rel="icon" href="/static/sm-logo.png" />
+      </Head>
+      <Box
+        bg="lightLime"
+        p={4}
+        color="navy"
+        bgGradient="linear(to-br, lightLime, brandTeal)"
+        minHeight="100vh"
+      >
+        <Sidebar />
+        <Section id="home">
+          <Stack align="start" gap={3}>
+            <MotionBox
+              drag
+              dragConstraints={{
+                top: -50,
+                left: -20,
+                right: 80,
+                bottom: 50
+              }}
+              dragSnapToOrigin
+              dragPropagation
+              cursor="pointer"
+            >
               <Flex>
-                <MotionLetter letter="I" />
-                <MotionLetter letter="'" />
-                <MotionLetter letter="m" />
+                <MotionLetter letter="H" />
+                <MotionLetter letter="i" />
+                <MotionLetter letter="," />
               </Flex>
-              <Flex>
-                <MotionLetter letter="S" />
-                <MotionLetter letter="a" />
-                <MotionLetter letter="r" />
-                <MotionLetter letter="a" />
-                <MotionLetter letter="h" />
+              <Flex gap={4}>
+                <Flex>
+                  <MotionLetter letter="I" />
+                  <MotionLetter letter="'" />
+                  <MotionLetter letter="m" />
+                </Flex>
+                <Flex>
+                  <MotionLetter letter="S" />
+                  <MotionLetter letter="a" />
+                  <MotionLetter letter="r" />
+                  <MotionLetter letter="a" />
+                  <MotionLetter letter="h" />
+                </Flex>
               </Flex>
-            </Flex>
-          </MotionBox>
-          <Box zIndex={1}>
-            <ScrollLink to="contact" smooth={true} spy={true}>
-              <Button
-                color="white"
-                size="md"
-                variant="outline"
-                _hover={{ bg: 'freshLemon', color: 'navy' }}
-              >
-                Contact me
-              </Button>
-            </ScrollLink>
-          </Box>
-        </Stack>
-      </Section>
-      <Section id="about">
-        <AboutMe />
-      </Section>
-      <Section id="experience">Experience</Section>
-      <Section id="projects">Projects</Section>
-      <Section id="contact">
-        <Contact />
-      </Section>
-      <Toaster
-        position="bottom-center"
-        toastOptions={{
-          duration: 5000
-        }}
-      />
-    </Box>
+            </MotionBox>
+            <Box zIndex={1}>
+              <ScrollLink to="contact" smooth={true} spy={true}>
+                <Button
+                  color="white"
+                  size="md"
+                  variant="outline"
+                  _hover={{ bg: 'freshLemon', color: 'navy' }}
+                >
+                  Contact me
+                </Button>
+              </ScrollLink>
+            </Box>
+          </Stack>
+        </Section>
+        <Section id="about">
+          <AboutMe />
+        </Section>
+        <Section id="experience">Experience</Section>
+        <Section id="projects">Projects</Section>
+        <Section id="contact">
+          <Contact />
+        </Section>
+        <Toaster
+          position="bottom-center"
+          toastOptions={{
+            duration: 5000
+          }}
+        />
+      </Box>
+    </>
   );
 };
 
