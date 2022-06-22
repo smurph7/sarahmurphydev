@@ -72,7 +72,7 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
         setZIndexMobile('0');
       }, 1000);
     } else {
-      setZIndexMobile('100');
+      setZIndexMobile('modal');
     }
   }, [isOpen]);
 

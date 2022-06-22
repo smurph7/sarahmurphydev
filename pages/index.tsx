@@ -21,7 +21,7 @@ const SitePage: NextPage = () => {
         minHeight="100vh"
       >
         <Sidebar />
-        <Logo />
+        <Logo right={[3, 3, null]} left={[null, 3, 3]} mt={[-2, -2, 0]} />
         <Section id="home">
           <Home />
         </Section>
