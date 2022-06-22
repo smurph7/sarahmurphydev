@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Box,
   Flex,
   Button,
   FormControl,
@@ -19,7 +20,18 @@ type FormValues = {
   email: string;
 };
 
-export const Contact = () => {
+export const Contact = () => (
+  <Box
+    p={5}
+    bg="rgba(255,255,255,0.3)"
+    borderRadius="2xl"
+    boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
+  >
+    <ContactForm />
+  </Box>
+);
+
+const ContactForm = () => {
   const {
     handleSubmit,
     register,
@@ -29,7 +41,6 @@ export const Contact = () => {
 
   const [isLoading, setIsLoading] = React.useState(false);
 
-  // TODO acknowledge success
   const onSubmit: SubmitHandler<FormValues> = (data: {
     name: string;
     message: string;
@@ -64,19 +75,22 @@ export const Contact = () => {
 
   return (
     <Stack as="form" gap={5} onSubmit={handleSubmit(onSubmit)}>
-      <FormControl isInvalid={!!errors.name}>
-        <Stack gap={[3, 3, 5]}>
-          <Flex
-            direction={['column', 'column', 'row']}
-            align="center"
-            justify="center"
-            width="100%"
-            gap={[3, 3, 5]}
-          >
-            <Flex direction="column" width="100%">
-              <FormLabel htmlFor="name">Name</FormLabel>
+      <Stack gap={[3, 3, 5]}>
+        <Flex
+          direction={['column', 'column', 'row']}
+          align="center"
+          justify="center"
+          width="100%"
+          gap={[3, 3, 5]}
+        >
+          <Flex direction="column" width="100%">
+            <FormControl isInvalid={!!errors.name}>
+              <FormLabel htmlFor="name" fontWeight="bold">
+                Name
+              </FormLabel>
               <Input
                 id="name"
+                bg="gray.100"
                 placeholder="Name"
                 {...register('name', {
                   required: 'Please enter your name'
@@ -85,17 +99,22 @@ export const Contact = () => {
               <FormErrorMessage>
                 {errors.name && errors.name.message}
               </FormErrorMessage>
-            </Flex>
-            <Flex align="center" width="100%">
-              <Flex direction="column" width="100%">
-                <FormLabel htmlFor="email">Email</FormLabel>
+            </FormControl>
+          </Flex>
+          <Flex align="center" width="100%">
+            <Flex direction="column" width="100%">
+              <FormControl isInvalid={!!errors.email}>
+                <FormLabel htmlFor="email" fontWeight="bold">
+                  Email
+                </FormLabel>
                 <Input
                   id="email"
+                  bg="gray.100"
                   placeholder="Email"
                   {...register('email', {
                     required: 'Please enter your email address',
                     pattern: {
-                      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                       message: 'Please enter a valid email address'
                     }
                   })}
@@ -103,14 +122,19 @@ export const Contact = () => {
                 <FormErrorMessage>
                   {errors.email && errors.email.message}
                 </FormErrorMessage>
-              </Flex>
+              </FormControl>
             </Flex>
           </Flex>
-          <Flex align="center" width="100%">
-            <Flex direction="column" width="100%">
-              <FormLabel htmlFor="Message">Message</FormLabel>
+        </Flex>
+        <Flex align="center" width="100%">
+          <Flex direction="column" width="100%">
+            <FormControl isInvalid={!!errors.message}>
+              <FormLabel htmlFor="Message" fontWeight="bold">
+                Message
+              </FormLabel>
               <Textarea
                 id="message"
+                bg="gray.100"
                 placeholder="Message"
                 {...register('message', {
                   required: 'Please enter your message'
@@ -119,13 +143,18 @@ export const Contact = () => {
               <FormErrorMessage>
                 {errors.message && errors.message.message}
               </FormErrorMessage>
-            </Flex>
+            </FormControl>
           </Flex>
-        </Stack>
-      </FormControl>
+        </Flex>
+      </Stack>
       <Flex>
-        <Button type="submit" isLoading={isLoading}>
-          Contact Me
+        <Button
+          type="submit"
+          isLoading={isLoading}
+          size="md"
+          _hover={{ bg: 'freshLemon', color: 'navy' }}
+        >
+          Send
         </Button>
       </Flex>
     </Stack>
