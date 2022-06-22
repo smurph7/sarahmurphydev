@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  Box,
   Flex,
   Button,
   FormControl,
@@ -12,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 type FormValues = {
   name: string;
@@ -50,11 +50,13 @@ export const Contact = () => {
       .then(
         result => {
           console.log(result.text);
+          toast.success('Message sent!');
           setIsLoading(false);
           reset();
         },
         error => {
           setIsLoading(false);
+          toast.error('Message failed. Please try again.')
           console.log(error.text);
         }
       );

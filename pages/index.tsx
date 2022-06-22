@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
+import { Toaster } from 'react-hot-toast';
 
 import { Sidebar, MotionLetter, AboutMe, Contact } from '~/components';
 
@@ -88,6 +89,12 @@ const Home: NextPage = () => {
       <Section id="contact">
         <Contact />
       </Section>
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          duration: 5000
+        }}
+      />
     </Box>
   );
 };
