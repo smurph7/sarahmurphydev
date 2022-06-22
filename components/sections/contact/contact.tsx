@@ -79,7 +79,7 @@ export const Contact = () => {
                 id="name"
                 placeholder="Name"
                 {...register('name', {
-                  required: 'This is required'
+                  required: 'Please enter your name'
                 })}
               />
               <FormErrorMessage>
@@ -93,10 +93,10 @@ export const Contact = () => {
                   id="email"
                   placeholder="Email"
                   {...register('email', {
-                    required: 'This is required',
+                    required: 'Please enter your email address',
                     pattern: {
                       value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                      message: 'Please enter a valid email'
+                      message: 'Please enter a valid email address'
                     }
                   })}
                 />
@@ -113,7 +113,7 @@ export const Contact = () => {
                 id="message"
                 placeholder="Message"
                 {...register('message', {
-                  required: 'This is required'
+                  required: 'Please enter your message'
                 })}
               />
               <FormErrorMessage>
