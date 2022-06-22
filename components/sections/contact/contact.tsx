@@ -8,7 +8,8 @@ import {
   Input,
   FormErrorMessage,
   Stack,
-  Textarea
+  Textarea,
+  Heading
 } from '@chakra-ui/react';
 import { useForm, SubmitHandler, FieldError } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
@@ -27,14 +28,20 @@ type FormInputValues = {
 };
 
 export const Contact = () => (
-  <Box
-    p={5}
-    bg="rgba(255,255,255,0.3)"
-    borderRadius="2xl"
-    boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
-  >
-    <ContactForm />
-  </Box>
+  <Stack gap={12}>
+    <Heading color="white" size="2xl">
+      Contact Me
+    </Heading>
+    <Box
+      p={5}
+      bg="rgba(255,255,255,0.3)"
+      borderRadius="2xl"
+      boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
+      maxWidth='1000px'
+    >
+      <ContactForm />
+    </Box>
+  </Stack>
 );
 
 const ContactForm = () => {
@@ -120,7 +127,7 @@ const ContactForm = () => {
                 })}
               />
             }
-          />{' '}
+          />
         </Flex>
         <FormInput
           label="Message"
@@ -142,6 +149,7 @@ const ContactForm = () => {
           type="submit"
           isLoading={isLoading}
           size="md"
+          px={10}
           _hover={{ bg: 'freshLemon', color: 'navy' }}
         >
           Send
