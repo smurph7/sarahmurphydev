@@ -68,6 +68,10 @@ export const Sidebar = ({ ...props }: Sidebar) => {
     }
   }, [isOpen, isMobile]);
 
+  if (!isPageLoaded) {
+    return <></>;
+  }
+
   return isMobile ? (
     <Box
       as="nav"
@@ -78,29 +82,27 @@ export const Sidebar = ({ ...props }: Sidebar) => {
       zIndex={zIndexMobile}
     >
       <Flex minHeight="100vh" width="100%" align="center" justify="center">
-        {isPageLoaded && (
+        <MotionBox
+          width="100%"
+          initial={false}
+          animate={isOpen ? 'open' : 'closed'}
+        >
           <MotionBox
+            bg="white"
+            variants={sidebarVariant}
+            position="absolute"
+            height="100%"
             width="100%"
-            initial={false}
-            animate={isOpen ? 'open' : 'closed'}
-          >
-            <MotionBox
-              bg="white"
-              variants={sidebarVariant}
-              position="absolute"
-              height="100%"
-              width="100%"
-              top={0}
-              left={0}
-              bottom={0}
-              zIndex={-1}
-            />
-            <MenuToggle toggle={() => toggleOpen()} />
-            <MotionList variants={variants}>
-              <NavMenuItems toggle={() => toggleOpen()} />
-            </MotionList>
-          </MotionBox>
-        )}
+            top={0}
+            left={0}
+            bottom={0}
+            zIndex={-1}
+          />
+          <MenuToggle toggle={() => toggleOpen()} />
+          <MotionList variants={variants}>
+            <NavMenuItems toggle={() => toggleOpen()} />
+          </MotionList>
+        </MotionBox>
       </Flex>
     </Box>
   ) : (
@@ -118,20 +120,19 @@ export const Sidebar = ({ ...props }: Sidebar) => {
       {...props}
     >
       <Flex minHeight="100vh" width="100%" align="center" justify="center">
-        {isPageLoaded && (
-          <Flex
-            width="100%"
-            px={6}
-            direction="column"
-            fontSize="md"
-            color="navy"
-            aria-label="Main Navigation"
-          >
-            <List>
-              <NavMenuItems />
-            </List>
-          </Flex>
-        )}
+        <Flex
+          width="100%"
+          px={6}
+          gap={1}
+          direction="column"
+          fontSize="md"
+          color="navy"
+          aria-label="Main Navigation"
+        >
+          <List>
+            <NavMenuItems />
+          </List>
+        </Flex>
       </Flex>
     </Box>
   );

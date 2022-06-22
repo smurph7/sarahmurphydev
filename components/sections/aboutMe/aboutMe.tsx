@@ -5,9 +5,9 @@ import { OrbitControls } from '@react-three/drei';
 import { IoBusiness } from 'react-icons/io5';
 import { IoIosPeople } from 'react-icons/io';
 import { GiBrain } from 'react-icons/gi';
+import { IconType } from 'react-icons/lib';
 
 import { WordCloud } from '~/components';
-import { IconType } from 'react-icons/lib';
 
 const AboutBubble = ({ icon, text }: { icon: IconType; text: string }) => (
   <Flex justify="start" align="center" gap={[3, 5]}>

@@ -1,4 +1,5 @@
-import { NavItem } from '..';
+import { Box, Stack } from '@chakra-ui/react';
+import { NavItem, SocialMediaLinks } from '..';
 
 export const navItems = [
   { title: 'About Me', linkId: 'about' },
@@ -9,12 +10,15 @@ export const navItems = [
 
 export const NavMenuItems = ({ toggle }: { toggle?: () => void }) => {
   return (
-    <>
-      {navItems.map(navItem => (
-        <NavItem key={navItem.title} linkId={navItem.linkId} onClick={toggle}>
-          {navItem.title}
-        </NavItem>
-      ))}
-    </>
+    <Stack gap={5}>
+      <Box>
+        {navItems.map(navItem => (
+          <NavItem key={navItem.title} linkId={navItem.linkId} onClick={toggle}>
+            {navItem.title}
+          </NavItem>
+        ))}
+      </Box>
+      <SocialMediaLinks />
+    </Stack>
   );
 };

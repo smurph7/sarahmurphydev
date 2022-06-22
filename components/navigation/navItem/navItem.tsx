@@ -1,11 +1,20 @@
 import * as React from 'react';
-import { Flex, Button, ListItem, useBreakpointValue } from '@chakra-ui/react';
+import {
+  Flex,
+  Button,
+  ListItem,
+  useBreakpointValue,
+  Icon,
+  Link
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 
 type NavItem = { linkId: string; [x: string]: any; children: any };
 
 const MotionListItem = motion(ListItem);
+const MotionFlex = motion(Flex);
 
 const variants = {
   open: {
@@ -24,6 +33,28 @@ const variants = {
       y: { stiffness: 1000 }
     }
   }
+};
+
+export const SocialMediaLinks = () => {
+  const variant = useBreakpointValue({ base: variants, md: {} });
+
+  return (
+    <MotionFlex
+      variants={variant}
+      justify="center"
+      align="center"
+      alignSelf="center"
+      gap={5}
+      pt={6}
+    >
+      <Link href="https://github.com/smurph7">
+        <Icon as={IoLogoGithub} boxSize={9} />
+      </Link>
+      <Link href="https://www.linkedin.com/in/sarahmurphydev/">
+        <Icon as={IoLogoLinkedin} boxSize={9} />
+      </Link>
+    </MotionFlex>
+  );
 };
 
 export const NavItem = ({ linkId, children, ...rest }: NavItem) => {
