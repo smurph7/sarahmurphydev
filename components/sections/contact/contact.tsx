@@ -23,8 +23,11 @@ export const Contact = () => {
   const {
     handleSubmit,
     register,
-    formState: { errors, isSubmitting }
+    formState: { errors },
+    reset
   } = useForm<FormValues>();
+
+  const [isLoading, setIsLoading] = React.useState(false);
 
   // TODO acknowledge success
   const onSubmit: SubmitHandler<FormValues> = (data: {
@@ -32,6 +35,7 @@ export const Contact = () => {
     message: string;
     email: string;
   }) => {
+    setIsLoading(true);
     emailjs
       .send(
         process.env.NEXT_PUBLIC_CONTACT_SERVICE_ID ?? '',
@@ -46,8 +50,11 @@ export const Contact = () => {
       .then(
         result => {
           console.log(result.text);
+          setIsLoading(false);
+          reset();
         },
         error => {
+          setIsLoading(false);
           console.log(error.text);
         }
       );
@@ -70,8 +77,7 @@ export const Contact = () => {
                 id="name"
                 placeholder="Name"
                 {...register('name', {
-                  required: 'This is required',
-                  minLength: { value: 4, message: 'Minimum length should be 4' }
+                  required: 'This is required'
                 })}
               />
               <FormErrorMessage>
@@ -113,7 +119,9 @@ export const Contact = () => {
         </Stack>
       </FormControl>
       <Flex>
-        <Button type="submit">Contact Me</Button>
+        <Button type="submit" isLoading={isLoading}>
+          Contact Me
+        </Button>
       </Flex>
     </Stack>
   );
