@@ -29,15 +29,22 @@ type FormInputValues = {
 
 export const Contact = () => (
   <Stack gap={12}>
-    <Heading color="white" size="2xl">
-      Contact Me
-    </Heading>
+    <Stack gap={1}>
+      <Heading color="white" size="2xl">
+        Contact Me
+      </Heading>
+      <Stack>
+        <Heading color="white" fontSize="lg" fontStyle="italic">
+          Currently living in Dublin and interested in new opportunities
+        </Heading>
+      </Stack>
+    </Stack>
     <Box
       p={5}
       bg="rgba(255,255,255,0.3)"
       borderRadius="2xl"
       boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
-      maxWidth='1000px'
+      maxWidth="1000px"
     >
       <ContactForm />
     </Box>
