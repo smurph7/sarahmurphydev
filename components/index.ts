@@ -1,5 +1,5 @@
 export { Sidebar, NavItem } from './navigation';
 
-export { MotionLetter, WordCloud } from './ui/animation';
+export { MotionLetter, WordCloud, Logo } from './ui';
 
-export { AboutMe, Contact, Experience } from './sections';
+export { AboutMe, Contact, Experience, Home } from './sections';

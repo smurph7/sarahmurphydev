@@ -1,15 +1,10 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import NextImage from 'next/image';
-import { Box, Flex, Button, Stack } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import { Link as ScrollLink } from 'react-scroll';
+import { Box, Flex } from '@chakra-ui/react';
 import { Toaster } from 'react-hot-toast';
 
-import { Sidebar, MotionLetter, AboutMe, Contact } from '~/components';
-
-const MotionBox = motion(Box);
+import { Sidebar, AboutMe, Contact, Home, Logo } from '~/components';
 
 const Section = ({ children, ...props }: any): JSX.Element => {
   return (
@@ -27,7 +22,7 @@ const Section = ({ children, ...props }: any): JSX.Element => {
   );
 };
 
-const Home: NextPage = () => {
+const SitePage: NextPage = () => {
   return (
     <>
       <Head>
@@ -42,61 +37,9 @@ const Home: NextPage = () => {
         minHeight="100vh"
       >
         <Sidebar />
-        <Button variant="unstyled" position="fixed" zIndex="sticky">
-          <NextImage
-            src="/static/sm-logo.png"
-            alt="logo"
-            width="100px"
-            height="100px"
-          />
-        </Button>
+        <Logo />
         <Section id="home">
-          <Stack align="start" gap={3}>
-            <MotionBox
-              drag
-              dragConstraints={{
-                top: -50,
-                left: -20,
-                right: 80,
-                bottom: 50
-              }}
-              dragSnapToOrigin
-              dragPropagation
-              cursor="pointer"
-            >
-              <Flex>
-                <MotionLetter letter="H" />
-                <MotionLetter letter="i" />
-                <MotionLetter letter="," />
-              </Flex>
-              <Flex gap={4}>
-                <Flex>
-                  <MotionLetter letter="I" />
-                  <MotionLetter letter="'" />
-                  <MotionLetter letter="m" />
-                </Flex>
-                <Flex>
-                  <MotionLetter letter="S" />
-                  <MotionLetter letter="a" />
-                  <MotionLetter letter="r" />
-                  <MotionLetter letter="a" />
-                  <MotionLetter letter="h" />
-                </Flex>
-              </Flex>
-            </MotionBox>
-            <Box zIndex={1}>
-              <ScrollLink to="contact" smooth={true} spy={true}>
-                <Button
-                  color="white"
-                  size="md"
-                  variant="outline"
-                  _hover={{ bg: 'freshLemon', color: 'navy' }}
-                >
-                  Contact me
-                </Button>
-              </ScrollLink>
-            </Box>
-          </Stack>
+          <Home />
         </Section>
         <Section id="about">
           <AboutMe />
@@ -117,4 +60,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default SitePage;
