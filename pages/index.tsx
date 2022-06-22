@@ -70,7 +70,7 @@ const Home: NextPage = () => {
             </Flex>
           </MotionBox>
           <Box zIndex={1}>
-            <ScrollLink to="contact" smooth={true} spy={true} offset={-40}>
+            <ScrollLink to="contact" smooth={true} spy={true}>
               <Button
                 color="white"
                 size="md"
