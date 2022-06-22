@@ -69,7 +69,7 @@ export const Sidebar = ({ ...props }: Sidebar) => {
   React.useEffect(() => {
     if (!isOpen) {
       setTimeout(() => {
-        setZIndexMobile('2');
+        setZIndexMobile('0');
       }, 1000);
     } else {
       setZIndexMobile('100');
