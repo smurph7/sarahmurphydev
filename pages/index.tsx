@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import NextImage from 'next/image';
 import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
@@ -41,6 +42,14 @@ const Home: NextPage = () => {
         minHeight="100vh"
       >
         <Sidebar />
+        <Button variant="unstyled" position="fixed" zIndex="sticky">
+          <NextImage
+            src="/static/sm-logo.png"
+            alt="logo"
+            width="100px"
+            height="100px"
+          />
+        </Button>
         <Section id="home">
           <Stack align="start" gap={3}>
             <MotionBox
