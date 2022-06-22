@@ -56,7 +56,7 @@ export const Contact = () => {
         },
         error => {
           setIsLoading(false);
-          toast.error('Message failed. Please try again.')
+          toast.error('Message failed. Please try again.');
           console.log(error.text);
         }
       );
@@ -93,8 +93,11 @@ export const Contact = () => {
                   id="email"
                   placeholder="Email"
                   {...register('email', {
-                    required: 'This is required'
-                    // TODO Validate email
+                    required: 'This is required',
+                    pattern: {
+                      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                      message: 'Please enter a valid email'
+                    }
                   })}
                 />
                 <FormErrorMessage>
