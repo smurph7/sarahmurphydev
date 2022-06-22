@@ -10,7 +10,7 @@ import {
   Stack,
   Textarea
 } from '@chakra-ui/react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, FieldError } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 
@@ -18,6 +18,12 @@ type FormValues = {
   name: string;
   message: string;
   email: string;
+};
+
+type FormInputValues = {
+  label: string;
+  error?: FieldError;
+  input: JSX.Element;
 };
 
 export const Contact = () => (
@@ -83,11 +89,10 @@ const ContactForm = () => {
           width="100%"
           gap={[3, 3, 5]}
         >
-          <Flex direction="column" width="100%">
-            <FormControl isInvalid={!!errors.name}>
-              <FormLabel htmlFor="name" fontWeight="bold">
-                Name
-              </FormLabel>
+          <FormInput
+            label="Name"
+            error={errors.name}
+            input={
               <Input
                 id="name"
                 bg="gray.100"
@@ -96,56 +101,41 @@ const ContactForm = () => {
                   required: 'Please enter your name'
                 })}
               />
-              <FormErrorMessage>
-                {errors.name && errors.name.message}
-              </FormErrorMessage>
-            </FormControl>
-          </Flex>
-          <Flex align="center" width="100%">
-            <Flex direction="column" width="100%">
-              <FormControl isInvalid={!!errors.email}>
-                <FormLabel htmlFor="email" fontWeight="bold">
-                  Email
-                </FormLabel>
-                <Input
-                  id="email"
-                  bg="gray.100"
-                  placeholder="Email"
-                  {...register('email', {
-                    required: 'Please enter your email address',
-                    pattern: {
-                      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                      message: 'Please enter a valid email address'
-                    }
-                  })}
-                />
-                <FormErrorMessage>
-                  {errors.email && errors.email.message}
-                </FormErrorMessage>
-              </FormControl>
-            </Flex>
-          </Flex>
-        </Flex>
-        <Flex align="center" width="100%">
-          <Flex direction="column" width="100%">
-            <FormControl isInvalid={!!errors.message}>
-              <FormLabel htmlFor="Message" fontWeight="bold">
-                Message
-              </FormLabel>
-              <Textarea
-                id="message"
+            }
+          />
+          <FormInput
+            label="Email"
+            error={errors.email}
+            input={
+              <Input
+                id="email"
                 bg="gray.100"
-                placeholder="Message"
-                {...register('message', {
-                  required: 'Please enter your message'
+                placeholder="Email"
+                {...register('email', {
+                  required: 'Please enter your email address',
+                  pattern: {
+                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: 'Please enter a valid email address'
+                  }
                 })}
               />
-              <FormErrorMessage>
-                {errors.message && errors.message.message}
-              </FormErrorMessage>
-            </FormControl>
-          </Flex>
+            }
+          />{' '}
         </Flex>
+        <FormInput
+          label="Message"
+          error={errors.message}
+          input={
+            <Textarea
+              id="message"
+              bg="gray.100"
+              placeholder="Message"
+              {...register('message', {
+                required: 'Please enter your message'
+              })}
+            />
+          }
+        />
       </Stack>
       <Flex>
         <Button
@@ -160,3 +150,17 @@ const ContactForm = () => {
     </Stack>
   );
 };
+
+const FormInput = ({ label, error, input }: FormInputValues) => (
+  <Flex align="center" width="100%">
+    <Flex direction="column" width="100%">
+      <FormControl isInvalid={!!error}>
+        <FormLabel htmlFor={label} fontWeight="bold">
+          {label}
+        </FormLabel>
+        {input}
+        <FormErrorMessage>{error && error.message}</FormErrorMessage>
+      </FormControl>
+    </Flex>
+  </Flex>
+);
