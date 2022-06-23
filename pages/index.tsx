@@ -1,12 +1,14 @@
 import * as React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Box } from '@chakra-ui/react';
+import { Box, useMediaQuery } from '@chakra-ui/react';
 import { Toaster } from 'react-hot-toast';
 
 import { Sidebar, AboutMe, Contact, Home, Logo, Section } from '~/components';
+import { MOBILE_MEDIA_QUERY } from '~/constants';
 
 const SitePage: NextPage = () => {
+  const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
   return (
     <>
       <Head>
@@ -21,7 +23,7 @@ const SitePage: NextPage = () => {
         minHeight="100vh"
       >
         <Sidebar />
-        <Logo right={[3, 3, null]} left={[null, 3, 3]} mt={[-2, -2, 0]} />
+        {!isMobile && <Logo />}
         <Section id="home">
           <Home />
         </Section>

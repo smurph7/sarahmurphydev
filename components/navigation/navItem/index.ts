@@ -1,1 +1,1 @@
-export { NavItem, SocialMediaLinks } from './navItem';
+export { NavItem } from './navItem';

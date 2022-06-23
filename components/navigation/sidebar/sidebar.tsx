@@ -12,6 +12,7 @@ import { motion, useCycle } from 'framer-motion';
 
 import { NavMenuItems, MenuToggle } from '..';
 import { useIsPageLoaded } from 'components/hooks/useIsPageLoaded';
+import { MOBILE_MEDIA_QUERY } from '~/constants';
 
 type Sidebar = JSX.IntrinsicAttributes &
   OmitCommonProps<
@@ -54,7 +55,7 @@ const sidebarVariant = {
 
 export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [isMobile] = useMediaQuery('(max-width: 768px)');
+  const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
   const [zIndexMobile, setZIndexMobile] = React.useState('0');
   const isPageLoaded = useIsPageLoaded();
 
