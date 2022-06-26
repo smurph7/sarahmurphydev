@@ -13,7 +13,7 @@ const SitePage: NextPage = () => {
     <>
       <Head>
         <title>Sarah Murphy</title>
-        <link rel="icon" href="/static/sm-logo.png" />
+        <link rel="icon" href="/static/sm-logo-250px.png" />
       </Head>
       <Box
         bg="lightLime"

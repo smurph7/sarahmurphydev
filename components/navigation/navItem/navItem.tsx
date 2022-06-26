@@ -68,6 +68,7 @@ export const NavItem = ({
         >
           <ScrollLink
             to={linkId}
+            href={`#${linkId}`}
             smooth={true}
             spy={true}
             offset={-40}

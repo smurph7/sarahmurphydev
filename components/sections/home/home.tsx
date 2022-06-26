@@ -43,7 +43,7 @@ export const Home = (): JSX.Element => {
         </Flex>
       </MotionBox>
       <Box zIndex={1}>
-        <ScrollLink to="contact" smooth={true} spy={true}>
+        <ScrollLink to="contact" href="#contact" smooth={true} spy={true}>
           <Button
             color="white"
             size="md"

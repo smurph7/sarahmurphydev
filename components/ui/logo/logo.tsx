@@ -4,7 +4,7 @@ import { Button } from '@chakra-ui/react';
 import { Link as ScrollLink } from 'react-scroll';
 
 export const Logo = ({ ...props }: { [x: string]: any }): JSX.Element => (
-  <ScrollLink to="home" smooth={true} spy={true}>
+  <ScrollLink to="home" href='/' smooth={true} spy={true}>
     <Button
       variant="unstyled"
       _focus={{ outline: 'none', border: 'none' }}
