@@ -15,7 +15,7 @@ export const Logo = ({ ...props }: { [x: string]: any }): JSX.Element => (
       {...props}
     >
       <NextImage
-        src="/static/sm-logo.png"
+        src="/static/sm-logo-250px.png"
         alt="logo"
         width="100px"
         height="100px"
