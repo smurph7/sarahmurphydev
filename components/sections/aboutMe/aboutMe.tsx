@@ -15,7 +15,7 @@ import { IoIosPeople } from 'react-icons/io';
 import { GiBrain } from 'react-icons/gi';
 import { IconType } from 'react-icons/lib';
 
-import { WordCloud } from '~/components';
+import { WordCloud, Card } from '~/components';
 
 const AboutBubble = ({
   icon,
@@ -26,16 +26,11 @@ const AboutBubble = ({
 }): JSX.Element => (
   <Flex justify="start" align="center" gap={[3, 5]}>
     <Icon as={icon} boxSize={[7, 8]} />
-    <Flex
-      bg="rgba(255,255,255,0.3)"
-      borderRadius="2xl"
-      boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
-      p={4}
-    >
+    <Card>
       <Text color="navy" fontSize="lg">
         {text}
       </Text>
-    </Flex>
+    </Card>
   </Flex>
 );
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-  Box,
   Flex,
   Button,
   FormControl,
@@ -14,6 +13,8 @@ import {
 import { useForm, SubmitHandler, FieldError } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
+
+import { Card } from '~/components';
 
 type FormValues = {
   name: string;
@@ -39,15 +40,9 @@ export const Contact = (): JSX.Element => (
         </Heading>
       </Stack>
     </Stack>
-    <Box
-      p={5}
-      bg="rgba(255,255,255,0.3)"
-      borderRadius="2xl"
-      boxShadow="rgb(0 0 0 / 10%) 0px 5px 10px 5px"
-      maxWidth="1000px"
-    >
+    <Card display="block" maxWidth="1000px">
       <ContactForm />
-    </Box>
+    </Card>
   </Stack>
 );
 
