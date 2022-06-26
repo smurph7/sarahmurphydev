@@ -4,7 +4,15 @@ import Head from 'next/head';
 import { Box, useMediaQuery } from '@chakra-ui/react';
 import { Toaster } from 'react-hot-toast';
 
-import { Sidebar, AboutMe, Contact, Home, Logo, Section } from '~/components';
+import {
+  Sidebar,
+  AboutMe,
+  Experience,
+  Contact,
+  Home,
+  Logo,
+  Section
+} from '~/components';
 import { MOBILE_MEDIA_QUERY } from '~/constants';
 
 const SitePage: NextPage = () => {

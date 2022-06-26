@@ -1,61 +1,89 @@
 import * as React from 'react';
 
-import { Box, Stack, Text, Divider, Circle } from '@chakra-ui/react';
+import {
+  Flex,
+  Text,
+  Heading,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel
+} from '@chakra-ui/react';
 
-type Node = {
-  title: string;
-};
+import { Card } from 'components/ui';
+
+import type { ExperienceData } from './types';
+import { experience } from './experienceData';
 
 export const Experience = (): JSX.Element => {
-  const nodes = [{ title: 'HI' }, { title: 'hullo' }];
   return (
-    <Stack align="center">
-      <Stack height="100px" align="start" gap={20}>
-        <Timeline nodes={nodes} />
-      </Stack>
-    </Stack>
+    <Card pl={1}>
+      <ExperienceTabs experience={experience} />
+    </Card>
   );
 };
 
-const Timeline = ({ nodes }: { nodes: Node[] }): JSX.Element => {
-  return (
-    <>
-      {nodes.map((node: Node, index: number) => (
-        <TimelineNode
-          key={node.title}
-          node={node}
-          side={index % 2 === 0 ? 'left' : 'right'}
-        />
-      ))}
-    </>
-  );
-};
-
-const TimelineNode = ({
-  node,
-  side
+const ExperienceTabs = ({
+  experience
 }: {
-  node: Node;
-  side: 'left' | 'right';
+  experience: ExperienceData[];
 }): JSX.Element => {
   return (
-    <Stack direction="row" align="center" justify="start">
-      <Box position="relative">
-        <Box position="absolute" left={-12} top={2}>
-          {side === 'left' && <Text>{node.title}</Text>}
-        </Box>
-        <Circle size="40px" bg="white" />
-        <Box position="absolute" height="100px" left="49%">
-          <Divider
-            orientation="vertical"
-            borderLeftWidth={2}
-            borderRadius="xl"
-          />
-        </Box>
-        <Box position="absolute" right={-12} top={2}>
-          {side === 'right' && <Text>{node.title}</Text>}
-        </Box>
-      </Box>
-    </Stack>
+    <Tabs width="100%" orientation="vertical" size="lg">
+      <TabList borderLeft="0px">
+        {experience.map((tab, index) => (
+          <Tab
+            key={index}
+            borderRightWidth="2px"
+            borderRightStyle="solid"
+            borderRightColor="white"
+            _active={{ bg: 'transparent' }}
+            _focus={{ outline: 'none' }}
+            _selected={{
+              color: 'navy',
+              borderRightColor: 'freshLemon'
+            }}
+          >
+            <Text fontSize="md">{tab.company}</Text>
+          </Tab>
+        ))}
+      </TabList>
+
+      <TabPanels p={3}>
+        {experience.map((tab, index) => (
+          <TabPanel p={4} pt={0} key={index}>
+            <Flex direction="column" gap={1} pb={4}>
+              <Heading fontSize="lg">{tab.position}</Heading>
+              <Text fontSize="sm">{tab.date}</Text>
+            </Flex>
+            {tab.subprojects && (
+              <Tabs isFitted>
+                <TabList>
+                  {tab.subprojects.map((subproject, index) => (
+                    <Tab
+                      key={index}
+                      color="navy"
+                      _active={{ bg: 'transparent' }}
+                      _focus={{ outline: 'none' }}
+                      _selected={{ borderColor: 'freshLemon' }}
+                    >
+                      {subproject.title}
+                    </Tab>
+                  ))}
+                </TabList>
+                <TabPanels>
+                  {tab.subprojects.map((subproject, index) => (
+                    <TabPanel key={index}>
+                      <Text>{subproject.description}</Text>
+                    </TabPanel>
+                  ))}
+                </TabPanels>
+              </Tabs>
+            )}
+          </TabPanel>
+        ))}
+      </TabPanels>
+    </Tabs>
   );
 };
