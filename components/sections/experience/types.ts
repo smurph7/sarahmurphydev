@@ -11,6 +11,7 @@ type Subproject = {
   title: string;
   date: string;
   points: Point;
+  stack?: string[];
 };
 
 type Point = string[];

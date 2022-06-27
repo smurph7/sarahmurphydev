@@ -17,7 +17,9 @@ export const experience: ExperienceData[] = [
       'TypeScript',
       'React Query',
       'React Hooks',
-      'Zustand'
+      'Zustand',
+      'Jest',
+      'Cypress'
     ]
   },
   {
@@ -31,7 +33,8 @@ export const experience: ExperienceData[] = [
         date: 'May - July 2020',
         points: [
           'In order to help the company grow its capabilities, form opinions and develop best practices, I researched & presented findings to ThoughtWorks Australia on Service Mesh, which is rapidly becoming the standard for micro-service implementations.'
-        ]
+        ],
+        stack: ['Docker', 'Kubernetes', 'Istio', 'AWS']
       },
       {
         title: 'The Greens',
@@ -59,23 +62,25 @@ export const experience: ExperienceData[] = [
           'Delivered a recreated motor insurance sales application with a focus on improving the user experience',
           'Used Test Driven Development with React, Redux and Jest to create a user-friendly interface to simplify the application process for customers',
           'Worked closely with QAs to identify technical dependencies, prioritise stories, and provide testing support'
-        ]
+        ],
+        stack: ['React', 'Redux', 'Jest', 'Java']
       },
       {
         title: 'TW University',
         date: 'February 2019 - April 2020',
         points: [
           'An immersive learning experience where graduates from around the world meet in India to learn best programming practices, security and consultancy skills whilst delivering an ecommerce project in small teams.',
-          'Used agile principles, Test Driven Development, Continuous Integration / Continuous Delivery to improve and add new features to an existing full stack web sales application whilst considering security, business needs and technical debt',
+          'Used agile principles, Test Driven Development, Continuous Integration / Continuous Delivery to improve and add new features to an existing full stack web sales application',
           'Stepped into business and quality analyst roles throughout the project to write stories and test developed features'
-        ]
+        ],
+        stack: ['Java', 'JavaScript', 'HTML', 'CSS', 'Jest', 'SQL']
       }
     ]
   },
   {
     company: 'Level Up',
     position: 'Software Developer Trainer',
-    date: '',
+    date: 'October - November 2019',
     points: [
       'LevelUp is a series of classes and workshops for students who want to gain real-world experience. It is a not-for-profit initiative run by ThoughtWorks volunteers.',
       'Co-led a team of 9 developers, business analysts and an experience designer',
@@ -93,6 +98,14 @@ export const experience: ExperienceData[] = [
       'Tested application readiness for system changes going live',
       'Trained the sales team in the new CRM which increased their productivity',
       'Developed new reports in Looker which greatly increased the efficiency of the admin team and allowed business clients to understand employee progress'
+    ],
+    stack: [
+      'Moodle',
+      'Looker',
+      'SQL',
+      'Pipedrive',
+      'SharePoint',
+      'Microsoft Office Suite'
     ]
   },
   {
@@ -109,7 +122,7 @@ export const experience: ExperienceData[] = [
   {
     company: 'University',
     position: 'University of Western Sydney',
-    date: '',
+    date: '2018',
     points: [],
     subprojects: [
       {
@@ -127,7 +140,8 @@ export const experience: ExperienceData[] = [
         points: [
           "In the final capstone unit for this course, I worked with a Master's student to build an Android mobile app to help the women from her hometown in India start their own cooking businesses from home",
           "The app could be used to search for cooks by location and users could see each cook's recipes and opening hours, while also providing a way for cooks to update their offerings"
-        ]
+        ],
+        stack: ['Android', 'Java', 'PHP', 'SQL']
       }
     ]
   }

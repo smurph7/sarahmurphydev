@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {
   Flex,
   Text,
@@ -10,11 +9,11 @@ import {
   Tab,
   TabPanel,
   UnorderedList,
-  ListItem
+  ListItem,
+  Divider
 } from '@chakra-ui/react';
 
-import { Card } from 'components/ui';
-
+import { Card } from '~/components';
 import type { ExperienceData } from './types';
 import { experience } from './experienceData';
 
@@ -54,7 +53,7 @@ const ExperienceTabs = ({
 
       <TabPanels p={3}>
         {experience.map((tab, index) => (
-          <TabPanel px={4} py={2} key={index} height="100%">
+          <TabPanel key={`${tab.company}-${index}`} px={4} py={2} height="100%">
             <Flex direction="column" height="100%">
               <Flex direction="column" gap={1} pb={4}>
                 <Heading fontSize="lg">{tab.position}</Heading>
@@ -63,11 +62,11 @@ const ExperienceTabs = ({
               <Flex direction="column" height="100%" justify="space-between">
                 <List points={tab.points} />
                 {tab.subprojects && (
-                  <Tabs isFitted>
+                  <Tabs isFitted height="100%">
                     <TabList>
                       {tab.subprojects.map((subproject, index) => (
                         <Tab
-                          key={index}
+                          key={`${subproject.title}-${index}`}
                           color="navy"
                           _active={{ bg: 'transparent' }}
                           _focus={{ outline: 'none' }}
@@ -77,12 +76,27 @@ const ExperienceTabs = ({
                         </Tab>
                       ))}
                     </TabList>
-                    <TabPanels>
+                    <TabPanels height="100%" p={3} pr={0}>
                       {tab.subprojects.map((subproject, index) => (
-                        <TabPanel key={index} pt={3}>
-                          <Flex direction="column" gap={2}>
-                            <Text fontSize="sm">{subproject.date}</Text>
-                            <List points={subproject.points} />
+                        <TabPanel
+                          key={`sub-tab-${subproject.title}-${index}`}
+                          pt={3}
+                          pb={8}
+                          pr={0}
+                          height="100%"
+                        >
+                          <Flex
+                            direction="column"
+                            height="100%"
+                            justify="space-between"
+                          >
+                            <Flex direction="column" gap={2} pr={3}>
+                              <Text fontSize="sm">{subproject.date}</Text>
+                              <List points={subproject.points} />
+                            </Flex>
+                            {subproject.stack && (
+                              <TechStack stack={subproject.stack} />
+                            )}
                           </Flex>
                         </TabPanel>
                       ))}
@@ -104,14 +118,13 @@ const List = ({
 }: {
   points: ExperienceData['points'];
 }): JSX.Element => {
-  console.log(points.length);
   if (points.length === 0) {
     return <></>;
   }
   return points.length > 1 ? (
     <UnorderedList spacing={2}>
       {points.map((point, index) => (
-        <ListItem key={index}>{point}</ListItem>
+        <ListItem key={`point-${index}`}>{point}</ListItem>
       ))}
     </UnorderedList>
   ) : (
@@ -131,9 +144,12 @@ const TechStack = ({
       </Text>
       <Flex gap={2} wrap="wrap" fontSize="sm" align="end">
         {stack?.map((tech, index) => (
-          <Text key={`${tech}-${index}`}>
-            {index !== 0 && '|'} {tech}
-          </Text>
+          <>
+            {index !== 0 && (
+              <Divider orientation="vertical" borderColor="navy" />
+            )}
+            <Text key={`${tech}-${index}`}>{tech}</Text>
+          </>
         ))}
       </Flex>
     </Flex>
