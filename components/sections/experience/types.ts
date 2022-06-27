@@ -4,6 +4,7 @@ export type ExperienceData = {
   date: string;
   points: Point;
   subprojects?: Subproject[];
+  stack?: string[];
 };
 
 type Subproject = {
