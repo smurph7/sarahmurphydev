@@ -1,13 +1,15 @@
 export type ExperienceData = {
   company: string;
   position: string;
-  description: string;
   date: string;
+  points: Point;
   subprojects?: Subproject[];
 };
 
 type Subproject = {
   title: string;
-  description: string;
   date: string;
+  points: Point;
 };
+
+type Point = string[];
