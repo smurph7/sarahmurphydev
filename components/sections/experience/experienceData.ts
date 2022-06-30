@@ -18,7 +18,7 @@ export const experience: ExperienceData[] = [
       'React Query',
       'React Hooks',
       'Zustand',
-      'Jest',
+      'React Testing Library',
       'Cypress'
     ]
   },
@@ -53,7 +53,8 @@ export const experience: ExperienceData[] = [
           'Sole developer of a proof-of-concept mobile banking app used to test the APIs, built with React Native and deployed to both iOS and Android devices throughout development, allowing the broader team to get a feel for the available features',
           'Monitored the stability of APIs using AWS CloudWatch',
           "Provided a gap analysis of the platform's current developer experience with recommendations that were then implemented"
-        ]
+        ],
+        stack: ['React Native', 'Jest']
       },
       {
         title: 'Suncorp',

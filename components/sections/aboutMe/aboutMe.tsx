@@ -103,7 +103,7 @@ export const AboutMe = (): JSX.Element => (
 
           <Box
             height={[350, 400]}
-            width={[300, 500]}
+            width={[300, 400, 500]}
             borderRadius="50%"
             _hover={{ cursor: 'grab' }}
             _active={{ cursor: 'grabbing' }}
