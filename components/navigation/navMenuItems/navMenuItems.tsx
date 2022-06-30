@@ -82,6 +82,7 @@ const SocialMediaLinks = (): JSX.Element => {
       alignSelf="center"
       gap={5}
       pt={6}
+      zIndex={0}
     >
       <Link href="https://github.com/smurph7">
         <Icon as={IoLogoGithub} boxSize={9} />

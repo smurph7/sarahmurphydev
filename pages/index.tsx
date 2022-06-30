@@ -17,12 +17,14 @@ import { MOBILE_MEDIA_QUERY } from '~/constants';
 
 const SitePage: NextPage = () => {
   const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
+
   return (
     <>
       <Head>
         <title>Sarah Murphy</title>
         <link rel="icon" href="/static/sm-logo-250px.png" />
       </Head>
+      <Sidebar />
       <Box
         bg="lightLime"
         p={4}
@@ -30,7 +32,6 @@ const SitePage: NextPage = () => {
         bgGradient="linear(to-br, lightLime, brandTeal)"
         minHeight="100vh"
       >
-        <Sidebar />
         {!isMobile && <Logo />}
         <Section id="home">
           <Home />

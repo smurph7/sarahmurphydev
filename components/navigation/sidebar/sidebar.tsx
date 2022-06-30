@@ -56,7 +56,8 @@ const sidebarVariant = {
 export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
-  const [zIndexMobile, setZIndexMobile] = React.useState('0');
+  const [minHeight, setMinHeight] = React.useState('auto');
+  const [boxSize, setBoxSize] = React.useState('80px');
   const isPageLoaded = useIsPageLoaded();
 
   React.useEffect(() => {
@@ -70,10 +71,12 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
   React.useEffect(() => {
     if (!isOpen) {
       setTimeout(() => {
-        setZIndexMobile('0');
+        setMinHeight('auto');
+        setBoxSize('80px');
       }, 1000);
     } else {
-      setZIndexMobile('modal');
+      setMinHeight('100vh');
+      setBoxSize('100%');
     }
   }, [isOpen]);
 
@@ -87,10 +90,16 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
       position="fixed"
       top={0}
       left={0}
-      width="100%"
-      zIndex={zIndexMobile}
+      width={boxSize}
+      height={boxSize}
+      zIndex="modal"
     >
-      <Flex minHeight="100vh" width="100%" align="center" justify="center">
+      <Flex
+        minHeight={minHeight}
+        width="100%"
+        align="center"
+        justify="center"
+      >
         <MotionBox
           width="100%"
           initial={false}
@@ -105,7 +114,6 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
             top={0}
             left={0}
             bottom={0}
-            zIndex={-1}
           />
           <MenuToggle toggle={() => toggleOpen()} />
           <MotionList variants={variants}>
