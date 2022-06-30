@@ -8,6 +8,7 @@ import {
   Sidebar,
   AboutMe,
   Experience,
+  Projects,
   Contact,
   Home,
   Logo,
@@ -42,7 +43,9 @@ const SitePage: NextPage = () => {
         <Section id="experience">
           <Experience />
         </Section>
-        <Section id="projects">Projects</Section>
+        <Section id="projects">
+          <Projects />
+        </Section>
         <Section id="contact">
           <Contact />
         </Section>
