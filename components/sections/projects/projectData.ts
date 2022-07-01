@@ -19,7 +19,7 @@ export const projectData = [
     description:
       "A website about me. The one you're on right now. You can check out the source code on Github.",
     githubLink: 'https://github.com/smurph7/sarahmurphydev',
-    stack: ['TyoeScript', 'Next.js']
+    stack: ['TypeScript', 'Next.js']
   },
   {
     title: 'Stitch UI',
@@ -27,7 +27,7 @@ export const projectData = [
       'A foray into building a performant, accessible & user-friendly component library using Stitches and Radix colors for styling and theming. Still a work in progress.',
     githubLink: 'https://github.com/smurph7/stitch-ui',
     projectLink: 'https://main--618286c4f81e0e004ab0373c.chromatic.com/',
-    stack: ['TyoeScript', 'Next.js']
+    stack: ['TypeScript', 'Next.js']
   },
   {
     title: 'Jokester',

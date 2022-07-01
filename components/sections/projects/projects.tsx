@@ -101,13 +101,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
             </Flex>
             <Flex columnGap={5} flexWrap="wrap">
               {project.stack.map((item: string, index: number) => (
-                <Code
-                  key={`${item}-${index}`}
-                  variant="outline"
-                  boxShadow={0}
-                  fontSize="xs"
-                  p={0}
-                >
+                <Code key={`${item}-${index}`} variant="simple">
                   {item}
                 </Code>
               ))}

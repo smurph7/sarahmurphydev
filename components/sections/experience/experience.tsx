@@ -17,7 +17,8 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Box
+  Box,
+  Code
 } from '@chakra-ui/react';
 
 import { Card } from '~/components';
@@ -258,26 +259,24 @@ const TechStack = ({
 
   return (
     <Flex
-      gap={2}
       direction="column"
       alignSelf={isTablet ? 'start' : 'end'}
       align={isTablet ? 'start' : 'end'}
     >
-      <Text fontSize="xs" fontWeight="bold">
-        Tech Stack
-      </Text>
       <Flex gap="4px" wrap="wrap" fontSize="xs" align="end">
         {stack?.map((tech, index) => (
           <>
             {index !== 0 && (
               <Divider
                 orientation="vertical"
-                borderColor="navy"
+                borderColor="gray"
                 maxHeight="12px"
                 alignSelf="center"
               />
             )}
-            <Text key={`${tech}-${index}`}>{tech}</Text>
+            <Code variant="simple" key={`${tech}-${index}`}>
+              {tech}
+            </Code>
           </>
         ))}
       </Flex>

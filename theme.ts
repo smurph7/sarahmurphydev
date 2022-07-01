@@ -16,4 +16,18 @@ export const colors: BrandColors = {
   navy: '#16123f'
 };
 
-export const theme = extendTheme({ colors });
+export const theme = extendTheme({
+  colors,
+  components: {
+    Code: {
+      variants: {
+        simple: {
+          color: 'gray.500',
+          boxShadow: 0,
+          fontSize: 'xs',
+          p: 0
+        }
+      }
+    }
+  }
+});
