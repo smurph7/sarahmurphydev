@@ -18,35 +18,11 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import NextImage from 'next/image';
-
 import { IoLogoGithub } from 'react-icons/io5';
 
 import { Card } from '~/components';
 
-const projectData = [
-  {
-    title: "Murphy's Movies",
-    description:
-      'Find trending and upcoming movies, search for a specific title, and save your favourites.',
-    seeMoreDetailsLink: 'https://murphys-movies.vercel.app/about',
-    githubLink: 'https://github.com/smurph7/movies',
-    projectLink: 'https://murphys-movies.vercel.app',
-    stack: [
-      'Next.js',
-      'React Query',
-      'React Testing Library',
-      'Stitches',
-      'Auth 0'
-    ]
-  },
-  {
-    title: 'Jokester',
-    description:
-      'A fun slackbot that tells jokes when you message it. Uses JokeAPI.',
-    githubLink: 'https://github.com/smurph7/jokester-slackbot',
-    stack: ['JavaScript', 'Slack Bolt']
-  }
-];
+import { projectData } from './projectData';
 
 type ProjectProps = {
   title: string;
@@ -63,8 +39,11 @@ export const Projects = (): JSX.Element => {
       <Heading color="white" size="2xl">
         Projects
       </Heading>
+      <Heading color="white" fontSize="lg" fontStyle="italic">
+        A few things that I&apos;ve been working on
+      </Heading>
       <Flex>
-        <SimpleGrid minChildWidth="300px" spacing={5} width="100%">
+        <SimpleGrid minChildWidth="350px" spacing={5} width="100%">
           {projectData.map(project => (
             <ProjectCard key={project.title} project={project} />
           ))}
