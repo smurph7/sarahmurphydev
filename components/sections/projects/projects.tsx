@@ -14,7 +14,8 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Button
+  Button,
+  Stack
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import NextImage from 'next/image';
@@ -31,6 +32,7 @@ type ProjectProps = {
   githubLink: string;
   projectLink?: string;
   stack: string[];
+  additionalInfo?: { text?: string[]; images?: string[] };
 };
 
 export const Projects = (): JSX.Element => {
@@ -123,7 +125,7 @@ const ProjectModal = ({
   project: ProjectProps;
 }) => {
   return (
-    <Modal isOpen={isOpen && !project.projectLink} onClose={onClose} size="xl">
+    <Modal isOpen={isOpen && !project.projectLink} onClose={onClose} size="3xl">
       <ModalOverlay
         backdropFilter="auto"
         backdropInvert="20%"
@@ -134,13 +136,31 @@ const ProjectModal = ({
         <ModalCloseButton />
         <ModalBody>
           <Flex direction="column" align="center" gap={5} p={5}>
-            {project.description}
-            <NextImage
-              src="/static/sm-logo-250px.png"
-              alt="logo"
-              width="100px"
-              height="100px"
-            />
+            <Text textAlign="center">{project.description}</Text>
+            {project.additionalInfo && (
+              <>
+                <Stack align="center">
+                  {project.additionalInfo.text?.map((text, index) => (
+                    <Text key={`addiontional-text-${index}`} textAlign="center">
+                      {text}
+                    </Text>
+                  ))}
+                </Stack>
+                <Flex py={5} direction="column">
+                  {project.additionalInfo.images?.map(image => (
+                    <NextImage
+                      key={image}
+                      src={image}
+                      alt={project.title}
+                      width="500px"
+                      height="300px"
+                      objectFit="contain"
+                    />
+                  ))}
+                </Flex>
+              </>
+            )}
+
             <Link
               href={project.githubLink}
               isExternal

@@ -19,7 +19,10 @@ export const projectData = [
     description:
       "A website about me. The one you're on right now. You can check out the source code on Github.",
     githubLink: 'https://github.com/smurph7/sarahmurphydev',
-    stack: ['TypeScript', 'Next.js']
+    stack: ['TypeScript', 'Next.js'],
+    additionalInfo: {
+      images: ['/static/sm-logo-500px.png']
+    }
   },
   {
     title: 'Stitch UI',
@@ -34,7 +37,14 @@ export const projectData = [
     description:
       'A fun slackbot that tells jokes when you message it. Uses JokeAPI.',
     githubLink: 'https://github.com/smurph7/jokester-slackbot',
-    stack: ['JavaScript', 'Slack Bolt']
+    stack: ['JavaScript', 'Slack Bolt'],
+    additionalInfo: {
+      text: [
+        'Ask Jokester to tell you a joke or use the /joke command',
+        'You can optionally add parameters: Any, Misc, Programming, Pun, Spooky, Christmas'
+      ],
+      images: ['/static/jokester01.png', '/static/jokester02.png']
+    }
   },
   {
     title: 'Irish Wealth',
@@ -56,6 +66,11 @@ export const projectData = [
     description:
       'Contributed to this workshop about getting started with Docker, Kubernetes & Service Mesh with cloud deployments.',
     githubLink: 'https://github.com/willgarcia/rotc',
-    stack: ['Docker', 'Kubernetes', 'Istio']
+    stack: ['Docker', 'Kubernetes', 'Istio'],
+    additionalInfo: {
+      text: [
+        'I helped to expand on a new section about Service Mesh and added examples of how to use Istio Service Mesh with AWS and Azure.'
+      ]
+    }
   }
 ];
