@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import NextImage from 'next/image';
-import { IoLogoGithub } from 'react-icons/io5'; 
+import { IoLogoGithub } from 'react-icons/io5';
 
 import { Card } from '~/components';
 
@@ -43,7 +43,7 @@ export const Projects = (): JSX.Element => {
         A few things that I&apos;ve been working on
       </Heading>
       <Flex>
-        <SimpleGrid minChildWidth="350px" spacing={5} width="100%">
+        <SimpleGrid minChildWidth={['300px', '350px']} spacing={5} width="100%">
           {projectData.map(project => (
             <ProjectCard key={project.title} project={project} />
           ))}

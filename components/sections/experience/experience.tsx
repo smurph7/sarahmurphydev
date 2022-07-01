@@ -23,94 +23,107 @@ import {
 
 import { Card } from '~/components';
 import { TABLET_MEDIA_QUERY } from '~/constants';
+import { useIsPageLoaded } from 'components/hooks/useIsPageLoaded';
 
 import type { ExperienceData } from './types';
 import { experience } from './experienceData';
 
 export const Experience = (): JSX.Element => {
   const [isTablet] = useMediaQuery(TABLET_MEDIA_QUERY);
+  const isPageLoaded = useIsPageLoaded();
 
   return (
     <Flex direction="column" gap={5}>
       <Heading color="white" size="2xl">
         Experience
       </Heading>
-      {isTablet ? (
-        <Card p={0} borderRadius="md">
-          <Accordion allowToggle width="100%">
-            {experience.map(item => (
-              <AccordionItem
-                key={`accordion-${item.company}`}
-                borderRadius="md"
-              >
-                <AccordionButton
-                  bg="whiteAlpha.400"
+
+      {isPageLoaded ? (
+        isTablet ? (
+          <Card p={0} borderRadius="md">
+            <Accordion allowToggle width="100%">
+              {experience.map(item => (
+                <AccordionItem
+                  key={`accordion-${item.company}`}
                   borderRadius="md"
-                  _expanded={{ bg: 'whiteAlpha.700' }}
                 >
-                  <Flex width="100%" justify="space-between">
-                    <Text fontSize="sm">{item.company}</Text>
-                    <AccordionIcon />
-                  </Flex>
-                </AccordionButton>
-                <AccordionPanel>
-                  <ExperiencePanel
-                    position={item.position}
-                    date={item.date}
-                    points={item.points}
-                    stack={item.stack}
-                    subprojectSection={
-                      <MobileSubprojects subprojects={item.subprojects} />
-                    }
-                  />
-                </AccordionPanel>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Card>
+                  <AccordionButton
+                    bg="whiteAlpha.400"
+                    borderRadius="md"
+                    _expanded={{ bg: 'whiteAlpha.700' }}
+                  >
+                    <Flex width="100%" justify="space-between">
+                      <Text fontSize="sm">{item.company}</Text>
+                      <AccordionIcon />
+                    </Flex>
+                  </AccordionButton>
+                  <AccordionPanel>
+                    <ExperiencePanel
+                      position={item.position}
+                      date={item.date}
+                      points={item.points}
+                      stack={item.stack}
+                      subprojectSection={
+                        <MobileSubprojects subprojects={item.subprojects} />
+                      }
+                    />
+                  </AccordionPanel>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Card>
+        ) : (
+          <Card
+            pl={1}
+            maxWidth="1000px"
+            minHeight={['525px', '525px', '600px']}
+          >
+            <Tabs width="100%" orientation="vertical" size="lg" isFitted>
+              <TabList borderLeft="0px">
+                {experience.map((tab, index) => (
+                  <Tab
+                    key={index}
+                    borderRightWidth="2px"
+                    borderRightStyle="solid"
+                    borderRightColor="white"
+                    _active={{ bg: 'transparent' }}
+                    _focus={{ outline: 'none' }}
+                    _selected={{
+                      color: 'navy',
+                      borderRightColor: 'freshLemon'
+                    }}
+                  >
+                    <Text fontSize={['sm', 'sm', 'sm', 'md']}>
+                      {tab.company}
+                    </Text>
+                  </Tab>
+                ))}
+              </TabList>
+              <TabPanels p={3}>
+                {experience.map((tab, index) => (
+                  <TabPanel
+                    key={`${tab.company}-${index}`}
+                    px={4}
+                    py={2}
+                    height="100%"
+                  >
+                    <ExperiencePanel
+                      position={tab.position}
+                      date={tab.date}
+                      points={tab.points}
+                      stack={tab.stack}
+                      subprojectSection={
+                        <DesktopSubprojects subprojects={tab.subprojects} />
+                      }
+                    />
+                  </TabPanel>
+                ))}
+              </TabPanels>
+            </Tabs>
+          </Card>
+        )
       ) : (
-        <Card pl={1} maxWidth="1000px" minHeight={['525px', '525px', '600px']}>
-          <Tabs width="100%" orientation="vertical" size="lg" isFitted>
-            <TabList borderLeft="0px">
-              {experience.map((tab, index) => (
-                <Tab
-                  key={index}
-                  borderRightWidth="2px"
-                  borderRightStyle="solid"
-                  borderRightColor="white"
-                  _active={{ bg: 'transparent' }}
-                  _focus={{ outline: 'none' }}
-                  _selected={{
-                    color: 'navy',
-                    borderRightColor: 'freshLemon'
-                  }}
-                >
-                  <Text fontSize={['sm', 'sm', 'sm', 'md']}>{tab.company}</Text>
-                </Tab>
-              ))}
-            </TabList>
-            <TabPanels p={3}>
-              {experience.map((tab, index) => (
-                <TabPanel
-                  key={`${tab.company}-${index}`}
-                  px={4}
-                  py={2}
-                  height="100%"
-                >
-                  <ExperiencePanel
-                    position={tab.position}
-                    date={tab.date}
-                    points={tab.points}
-                    stack={tab.stack}
-                    subprojectSection={
-                      <DesktopSubprojects subprojects={tab.subprojects} />
-                    }
-                  />
-                </TabPanel>
-              ))}
-            </TabPanels>
-          </Tabs>
-        </Card>
+        <></>
       )}
     </Flex>
   );
