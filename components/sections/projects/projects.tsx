@@ -29,7 +29,7 @@ type ProjectProps = {
   title: string;
   description: string;
   seeMoreDetailsLink?: string;
-  githubLink: string;
+  githubLink?: string;
   projectLink?: string;
   stack: string[];
   additionalInfo?: { text?: string[]; images?: string[] };
@@ -71,9 +71,11 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
         <Flex direction="column" width="100%">
           <Flex justify="end" align="center" height="100px">
             <Flex gap={5}>
-              <Link href={project.githubLink} isExternal>
-                <Icon as={IoLogoGithub} boxSize={9} viewBox="0 0 35 35" />
-              </Link>
+              {project.githubLink && (
+                <Link href={project.githubLink} isExternal>
+                  <Icon as={IoLogoGithub} boxSize={9} viewBox="0 0 35 35" />
+                </Link>
+              )}
               {project.projectLink ? (
                 <Link href={project.projectLink} isExternal>
                   <Icon as={ExternalLinkIcon} boxSize={9} viewBox="0 0 35 35" />

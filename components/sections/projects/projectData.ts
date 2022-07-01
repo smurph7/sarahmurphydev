@@ -1,5 +1,13 @@
 export const projectData = [
   {
+    title: 'Suncorp Motor Insurance - APIA',
+    description:
+      'Recreated a motor insurance sales application with a focus on improving the user experience and simplifying the application process.',
+    projectLink:
+      'https://motor.apia.com.au/capture-name?productType=comprehensive',
+    stack: ['React', 'Redux', 'Jest', 'Java']
+  },
+  {
     title: "Murphy's Movies",
     description:
       'Find trending and upcoming movies, search for a specific title, and save your favourites.',
