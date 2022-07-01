@@ -7,6 +7,7 @@ export const Footer = (): JSX.Element => (
     <Link href="https://github.com/smurph7/sarahmurphydev" isExternal>
       <Button
         variant="link"
+        color="navy"
         rightIcon={<Icon as={IoLogoGithub} boxSize={9} />}
         alignItems="center"
       >
