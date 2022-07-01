@@ -4,14 +4,14 @@ import { Button } from '@chakra-ui/react';
 import { Link as ScrollLink } from 'react-scroll';
 
 export const Logo = ({ ...props }: { [x: string]: any }): JSX.Element => (
-  <ScrollLink to="home" href='/' smooth={true} spy={true}>
+  <ScrollLink to="home" href="/" smooth={true} spy={true}>
     <Button
       variant="unstyled"
       _focus={{ outline: 'none', border: 'none' }}
       position="fixed"
       zIndex="sticky"
-      width={['60px', '60px', '100px']}
-      height={['60px', '60px', '100px']}
+      width="100px"
+      height="100px"
       {...props}
     >
       <NextImage

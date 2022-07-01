@@ -53,7 +53,7 @@ export const NavMenuItems = ({
     <Stack gap={5}>
       <Flex direction="column" gap={5}>
         {isMobile && <LogoLink toggle={toggle} />}
-        <Box>
+        <Flex direction="column" gap={1}>
           {navItems.map(navItem => (
             <NavItem
               key={navItem.title}
@@ -64,7 +64,7 @@ export const NavMenuItems = ({
               {navItem.title}
             </NavItem>
           ))}
-        </Box>
+        </Flex>
       </Flex>
       <SocialMediaLinks />
     </Stack>
@@ -85,10 +85,10 @@ const SocialMediaLinks = (): JSX.Element => {
       zIndex={0}
     >
       <Link href="https://github.com/smurph7" isExternal>
-        <Icon as={IoLogoGithub} boxSize={9} />
+        <Icon as={IoLogoGithub} boxSize={[12, 12, 12, 9]} />
       </Link>
       <Link href="https://www.linkedin.com/in/sarahmurphydev/" isExternal>
-        <Icon as={IoLogoLinkedin} boxSize={9} />
+        <Icon as={IoLogoLinkedin} boxSize={[12, 12, 12, 9]} />
       </Link>
     </MotionFlex>
   );

@@ -46,7 +46,7 @@ export const Home = (): JSX.Element => {
         <ScrollLink to="contact" href="#contact" smooth={true} spy={true}>
           <Button
             color="white"
-            size="md"
+            size="lg"
             variant="outline"
             _hover={{ bg: 'freshLemon', color: 'navy' }}
           >

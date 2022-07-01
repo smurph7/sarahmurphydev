@@ -87,7 +87,7 @@ export const NavItem = ({
               }}
               role="group"
               fontWeight="semibold"
-              fontSize="lg"
+              fontSize="xl"
               transition=".1s ease"
               {...linkStyle}
               {...rest}
