@@ -16,9 +16,11 @@ import {
   Footer
 } from '~/components';
 import { MOBILE_MEDIA_QUERY } from '~/constants';
+import { useIsPageLoaded } from 'components/hooks/useIsPageLoaded';
 
 const SitePage: NextPage = () => {
   const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
+  const isPageLoaded = useIsPageLoaded();
 
   return (
     <>
@@ -34,7 +36,7 @@ const SitePage: NextPage = () => {
         bgGradient="linear(to-br, lightLime, brandTeal)"
         minHeight="100vh"
       >
-        {!isMobile && <Logo />}
+        {!isMobile && isPageLoaded && <Logo priority />}
         <Section id="home">
           <Home />
         </Section>

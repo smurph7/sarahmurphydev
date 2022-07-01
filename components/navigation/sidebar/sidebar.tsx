@@ -54,11 +54,9 @@ const sidebarVariant = {
 export const Sidebar = ({ ...props }: Sidebar): JSX.Element | null => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
-  console.log('isMobile', isMobile);
   const [minHeight, setMinHeight] = React.useState('auto');
   const [boxSize, setBoxSize] = React.useState('80px');
   const isPageLoaded = useIsPageLoaded();
-  console.log('isPageLoaded', isPageLoaded);
 
   React.useEffect(() => {
     if (isOpen) {
