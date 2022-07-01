@@ -6,6 +6,7 @@ import { Link as ScrollLink } from 'react-scroll';
 export const Logo = ({ ...props }: { [x: string]: any }): JSX.Element => (
   <ScrollLink to="home" href="/" smooth={true} spy={true}>
     <Button
+      aria-label="Logo Home Button"
       variant="unstyled"
       _focus={{ outline: 'none', border: 'none' }}
       position="fixed"

@@ -18,6 +18,7 @@ const Path = (props: PathProps): JSX.Element => (
 
 export const MenuToggle = ({ toggle }: { toggle: () => void }): JSX.Element => (
   <Button
+    aria-label="Menu Toggle"
     variant="unstyled"
     onClick={toggle}
     position="absolute"

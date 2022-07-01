@@ -72,16 +72,28 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
           <Flex justify="end" align="center" height="100px">
             <Flex gap={5}>
               {project.githubLink && (
-                <Link href={project.githubLink} isExternal>
+                <Link
+                  aria-label={`Github Link - ${project.title}`}
+                  href={project.githubLink}
+                  isExternal
+                >
                   <Icon as={IoLogoGithub} boxSize={9} viewBox="0 0 35 35" />
                 </Link>
               )}
               {project.projectLink ? (
-                <Link href={project.projectLink} isExternal>
+                <Link
+                  aria-label={`External project link - ${project.title}`}
+                  href={project.projectLink}
+                  isExternal
+                >
                   <Icon as={ExternalLinkIcon} boxSize={9} viewBox="0 0 35 35" />
                 </Link>
               ) : (
-                <Button onClick={onOpen} variant="unstyled">
+                <Button
+                  aria-label={`Project information - ${project.title}`}
+                  onClick={onOpen}
+                  variant="unstyled"
+                >
                   <Icon as={ExternalLinkIcon} boxSize={9} viewBox="0 0 35 35" />
                 </Button>
               )}

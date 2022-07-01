@@ -84,10 +84,10 @@ const SocialMediaLinks = (): JSX.Element => {
       pt={6}
       zIndex={0}
     >
-      <Link href="https://github.com/smurph7" isExternal>
+      <Link aria-label='Github Link' href="https://github.com/smurph7" isExternal>
         <Icon as={IoLogoGithub} boxSize={[12, 12, 12, 9]} />
       </Link>
-      <Link href="https://www.linkedin.com/in/sarahmurphydev/" isExternal>
+      <Link aria-label='LinkedIn Link' href="https://www.linkedin.com/in/sarahmurphydev/" isExternal>
         <Icon as={IoLogoLinkedin} boxSize={[12, 12, 12, 9]} />
       </Link>
     </MotionFlex>
