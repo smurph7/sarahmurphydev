@@ -29,7 +29,10 @@ export const projectData = [
     githubLink: 'https://github.com/smurph7/sarahmurphydev',
     stack: ['TypeScript', 'Next.js'],
     additionalInfo: {
-      images: ['/static/sm-logo-500px.png']
+      images: [
+        '/static/sm-logo-500px.png',
+        '/static/sarahmurphydev-lighthouse-score.png'
+      ]
     }
   },
   {
