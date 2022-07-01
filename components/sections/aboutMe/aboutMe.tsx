@@ -45,8 +45,7 @@ export const AboutMe = (): JSX.Element => (
           <Text color="navy" fontSize="xl">
             Hey, I&apos;m Sarah. I am passionate about building responsive &amp;
             user-friendly web apps. I love to learn and am interested in working
-            on challenging projects with positive people. And I&apos;m available
-            now!
+            on challenging projects with positive people.
           </Text>
         </Flex>
         <Flex
