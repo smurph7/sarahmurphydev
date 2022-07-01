@@ -54,7 +54,7 @@ export const Experience = (): JSX.Element => {
                     _expanded={{ bg: 'whiteAlpha.700' }}
                   >
                     <Flex width="100%" justify="space-between">
-                      <Text fontSize="sm">{item.company}</Text>
+                      <Text fontSize="lg">{item.company}</Text>
                       <AccordionIcon />
                     </Flex>
                   </AccordionButton>
@@ -94,9 +94,7 @@ export const Experience = (): JSX.Element => {
                       borderRightColor: 'freshLemon'
                     }}
                   >
-                    <Text fontSize={['sm', 'sm', 'sm', 'md']}>
-                      {tab.company}
-                    </Text>
+                    <Text fontSize="md">{tab.company}</Text>
                   </Tab>
                 ))}
               </TabList>
@@ -168,7 +166,7 @@ const DesktopSubprojects = ({
           <Tab
             key={`${subproject.title}-${index}`}
             color="navy"
-            fontSize={['sm', 'sm', 'sm', 'md']}
+            fontSize="md"
             _active={{ bg: 'transparent' }}
             _focus={{ outline: 'none' }}
             _selected={{ borderColor: 'freshLemon' }}
@@ -226,7 +224,7 @@ const MobileSubprojects = ({
             }}
           >
             <Flex width="100%" justify="space-between">
-              <Text fontSize="sm">{subproject.title}</Text>
+              <Text fontSize="md">{subproject.title}</Text>
               <AccordionIcon />
             </Flex>
           </AccordionButton>
@@ -264,13 +262,13 @@ const List = ({
   }
 
   return points.length > 1 ? (
-    <UnorderedList spacing={2} fontSize={['sm', 'sm', 'sm', 'md']}>
+    <UnorderedList spacing={2} fontSize='md'>
       {points.map((point, index) => (
         <ListItem key={`point-${index}`}>{point}</ListItem>
       ))}
     </UnorderedList>
   ) : (
-    <Text fontSize={['sm', 'sm', 'sm', 'md']}>{points[0]}</Text>
+    <Text fontSize='md'>{points[0]}</Text>
   );
 };
 
