@@ -6,12 +6,56 @@ import {
   Text,
   Code,
   Link,
-  Icon
+  Icon,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import NextImage from 'next/image';
+
 import { IoLogoGithub } from 'react-icons/io5';
 
 import { Card } from '~/components';
+
+const projectData = [
+  {
+    title: "Murphy's Movies",
+    description:
+      'Find trending and upcoming movies, search for a specific title, and save your favourites.',
+    seeMoreDetailsLink: 'https://murphys-movies.vercel.app/about',
+    githubLink: 'https://github.com/smurph7/movies',
+    projectLink: 'https://murphys-movies.vercel.app',
+    stack: [
+      'Next.js',
+      'React Query',
+      'React Testing Library',
+      'Stitches',
+      'Auth 0'
+    ]
+  },
+  {
+    title: 'Jokester',
+    description:
+      'A fun slackbot that tells jokes when you message it. Uses JokeAPI.',
+    githubLink: 'https://github.com/smurph7/jokester-slackbot',
+    stack: ['JavaScript', 'Slack Bolt']
+  }
+];
+
+type ProjectProps = {
+  title: string;
+  description: string;
+  seeMoreDetailsLink?: string;
+  githubLink: string;
+  projectLink?: string;
+  stack: string[];
+};
 
 export const Projects = (): JSX.Element => {
   return (
@@ -21,69 +65,123 @@ export const Projects = (): JSX.Element => {
       </Heading>
       <Flex justify="center">
         <SimpleGrid columns={[1, 1, 2]} spacing={5}>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          {projectData.map(project => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
         </SimpleGrid>
       </Flex>
     </Flex>
   );
 };
 
-const ProjectCard = (): JSX.Element => {
+const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Card
-      width="350px"
-      height="350px"
-      _hover={{
-        transition: 'all 0.25s',
-        transform: 'translateY(-10px)'
-      }}
-    >
-      <Flex direction="column" width="100%" justify="space-between">
-        <Flex direction="column" width="100%" gap={2}>
-          <Heading fontSize="xl" alignSelf="center" p={1}>
-            Murphy&apos;s Movies
-          </Heading>
-
-          <Text>
-            Find trending and upcoming movies, search for a specific title, and
-            save your favourites.
-          </Text>
-          <Text>
-            See the{' '}
-            <Link href="https://murphys-movies.vercel.app/about" isExternal>
-              about page <ExternalLinkIcon />{' '}
+    <>
+      <ProjectModal isOpen={isOpen} onClose={onClose} project={project} />
+      <Card
+        width="350px"
+        height="350px"
+        _hover={{
+          transition: 'all 0.25s',
+          transform: 'translateY(-5px)'
+        }}
+        sx={{ transition: 'all 0.25s', transform: 'translateY(5px)' }}
+      >
+        <Flex direction="column" width="100%" justify="space-between">
+          <Flex direction="column" width="100%" gap={2}>
+            <Heading fontSize="xl" alignSelf="center" p={1}>
+              {project.title}
+            </Heading>
+            <Text>{project.description}</Text>
+            {project.seeMoreDetailsLink && (
+              <Text>
+                See the{' '}
+                <Link href={project.seeMoreDetailsLink} isExternal>
+                  about page <ExternalLinkIcon />{' '}
+                </Link>
+                for more technical details.
+              </Text>
+            )}
+          </Flex>
+          <Flex gap={8} justify="center">
+            <Link href={project.githubLink} isExternal>
+              <Icon as={IoLogoGithub} boxSize={9} />
             </Link>
-            for more technical details.
-          </Text>
+            {project.projectLink ? (
+              <Link href={project.projectLink} isExternal>
+                <Icon as={ExternalLinkIcon} boxSize={9} />
+              </Link>
+            ) : (
+              <Button onClick={onOpen} variant="unstyled">
+                <Icon as={ExternalLinkIcon} boxSize={9} />
+              </Button>
+            )}
+          </Flex>
+          <Flex columnGap={5} flexWrap="wrap">
+            {project.stack.map((item: string, index: number) => (
+              <Code
+                key={`${item}-${index}`}
+                variant="outline"
+                boxShadow={0}
+                fontSize="xs"
+                p={0}
+              >
+                {item}
+              </Code>
+            ))}
+          </Flex>
         </Flex>
-        <Flex gap={8} justify="center">
-          <Link href="https://github.com/smurph7/movies" isExternal>
-            <Icon as={IoLogoGithub} boxSize={9} />
-          </Link>
-          <Link href="https://murphys-movies.vercel.app" isExternal>
-            <Icon as={ExternalLinkIcon} boxSize={9} />
-          </Link>
-        </Flex>
-        <Flex columnGap={5} flexWrap="wrap">
-          <Code variant="outline" boxShadow={0} fontSize="xs" p={0}>
-            Next.js
-          </Code>
-          <Code variant="outline" boxShadow={0} fontSize="xs">
-            React Query
-          </Code>
-          <Code variant="outline" boxShadow={0} fontSize="xs">
-            React Testing Library
-          </Code>
-          <Code variant="outline" boxShadow={0} fontSize="xs">
-            Stitches
-          </Code>
-          <Code variant="outline" boxShadow={0} fontSize="xs">
-            Auth 0
-          </Code>
-        </Flex>
-      </Flex>
-    </Card>
+      </Card>
+    </>
+  );
+};
+
+const ProjectModal = ({
+  isOpen,
+  onClose,
+  project
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  project: ProjectProps;
+}) => {
+  return (
+    <Modal isOpen={isOpen && !project.projectLink} onClose={onClose} size="xl">
+      <ModalOverlay
+        backdropFilter="auto"
+        backdropInvert="20%"
+        backdropBlur="2px"
+      />
+      <ModalContent>
+        <ModalHeader textAlign="center">{project.title}</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Flex direction="column" align="center" gap={5} p={5}>
+            {project.description}
+            <NextImage
+              src="/static/sm-logo-250px.png"
+              alt="logo"
+              width="100px"
+              height="100px"
+            />
+            <Link
+              href={project.githubLink}
+              isExternal
+              _hover={{ textDecoration: 'none' }}
+            >
+              <Button
+                colorScheme="yellow"
+                variant="outline"
+                onClick={onClose}
+                leftIcon={<Icon as={IoLogoGithub} boxSize={9} />}
+              >
+                View on Github
+              </Button>
+            </Link>
+          </Flex>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
   );
 };
