@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   Box,
   Flex,
-  List,
   ChakraProps,
   OmitCommonProps,
   useMediaQuery
@@ -22,7 +21,6 @@ type Sidebar = JSX.IntrinsicAttributes &
   ChakraProps & { as?: 'div' | undefined };
 
 const MotionBox = motion(Box);
-const MotionList = motion(List);
 
 const variants = {
   open: {
@@ -94,12 +92,7 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
       height={boxSize}
       zIndex="modal"
     >
-      <Flex
-        minHeight={minHeight}
-        width="100%"
-        align="center"
-        justify="center"
-      >
+      <Flex minHeight={minHeight} width="100%" align="center" justify="center">
         <MotionBox
           width="100%"
           initial={false}
@@ -116,9 +109,9 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
             bottom={0}
           />
           <MenuToggle toggle={() => toggleOpen()} />
-          <MotionList variants={variants}>
+          <MotionBox variants={variants}>
             <NavMenuItems toggle={() => toggleOpen()} />
-          </MotionList>
+          </MotionBox>
         </MotionBox>
       </Flex>
     </Box>
@@ -146,9 +139,7 @@ export const Sidebar = ({ ...props }: Sidebar): JSX.Element => {
           color="navy"
           aria-label="Main Navigation"
         >
-          <List>
-            <NavMenuItems />
-          </List>
+          <NavMenuItems />
         </Flex>
       </Flex>
     </Box>

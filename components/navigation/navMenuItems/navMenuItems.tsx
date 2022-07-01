@@ -6,7 +6,8 @@ import {
   useBreakpointValue,
   useMediaQuery,
   Icon,
-  Link
+  Link,
+  List
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
@@ -54,16 +55,18 @@ export const NavMenuItems = ({
       <Flex direction="column" gap={5}>
         {isMobile && <LogoLink toggle={toggle} />}
         <Flex direction="column" gap={1}>
-          {navItems.map(navItem => (
-            <NavItem
-              key={navItem.title}
-              linkId={navItem.linkId}
-              onClick={toggle}
-              variants={variants}
-            >
-              {navItem.title}
-            </NavItem>
-          ))}
+          <List>
+            {navItems.map(navItem => (
+              <NavItem
+                key={navItem.title}
+                linkId={navItem.linkId}
+                onClick={toggle}
+                variants={variants}
+              >
+                {navItem.title}
+              </NavItem>
+            ))}
+          </List>
         </Flex>
       </Flex>
       <SocialMediaLinks />
@@ -84,10 +87,18 @@ const SocialMediaLinks = (): JSX.Element => {
       pt={6}
       zIndex={0}
     >
-      <Link aria-label='Github Link' href="https://github.com/smurph7" isExternal>
+      <Link
+        aria-label="Github Link"
+        href="https://github.com/smurph7"
+        isExternal
+      >
         <Icon as={IoLogoGithub} boxSize={[12, 12, 12, 9]} />
       </Link>
-      <Link aria-label='LinkedIn Link' href="https://www.linkedin.com/in/sarahmurphydev/" isExternal>
+      <Link
+        aria-label="LinkedIn Link"
+        href="https://www.linkedin.com/in/sarahmurphydev/"
+        isExternal
+      >
         <Icon as={IoLogoLinkedin} boxSize={[12, 12, 12, 9]} />
       </Link>
     </MotionFlex>
