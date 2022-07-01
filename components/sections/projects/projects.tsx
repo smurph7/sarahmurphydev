@@ -59,7 +59,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
     <>
       <ProjectModal isOpen={isOpen} onClose={onClose} project={project} />
       <Card
-        height="350px"
+        height="300px"
         _hover={{
           transition: 'all 0.25s',
           transform: 'translateY(-5px)'

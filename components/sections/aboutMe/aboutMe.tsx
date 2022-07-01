@@ -50,25 +50,12 @@ export const AboutMe = (): JSX.Element => (
           pl={0}
           width={['100%', '100%', '100%', '100%', '80%']}
         >
-          <UnorderedList spacing={2}>
-            <ListItem>
-              <Text color="navy" fontSize="xl">
-                Experience deeply focused on front end development
-              </Text>
-            </ListItem>
-            <ListItem>
-              <Text color="navy" fontSize="xl">
-                Passionate about building responsive, user-friendly and
-                performant web apps
-              </Text>
-            </ListItem>
-            <ListItem>
-              <Text color="navy" fontSize="xl">
-                Interested in working on challenging projects with positive
-                people
-              </Text>
-            </ListItem>
-          </UnorderedList>
+          <Text color="navy" fontSize="xl">
+            Hey, I&apos;m Sarah. I am passionate about building responsive &amp;
+            user-friendly web apps. I love to learn and am interested in working
+            on challenging projects with positive people. And I&apos;m available
+            now!
+          </Text>
         </Flex>
         <Flex
           gap={[5, 5, 5, 5, 0]}

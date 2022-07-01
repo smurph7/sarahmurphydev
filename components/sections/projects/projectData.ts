@@ -15,6 +15,13 @@ export const projectData = [
     ]
   },
   {
+    title: 'Sarah Murphy',
+    description:
+      "A website about me. The one you're on right now. You can check out the source code on Github.",
+    githubLink: 'https://github.com/smurph7/sarahmurphydev',
+    stack: ['TyoeScript', 'Next.js']
+  },
+  {
     title: 'Stitch UI',
     description:
       'A foray into building a performant, accessible & user-friendly component library using Stitches and Radix colors for styling and theming. Still a work in progress.',
