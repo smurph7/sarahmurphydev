@@ -1,13 +1,5 @@
 import * as React from 'react';
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Icon,
-  UnorderedList,
-  ListItem
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Icon } from '@chakra-ui/react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { IoBusiness } from 'react-icons/io5';
@@ -70,21 +62,21 @@ export const AboutMe = (): JSX.Element => (
               icon={GiBrain}
               text="Excellent capability in terms of technology skills and
             knowledge, with practical application in a business
-            environment."
+            environment"
             />
             <AboutBubble
               icon={IoBusiness}
               text="Considerable experience in a variety of roles - from
-        technical to business and systems analysis to project
+        technical to business &amp; systems analysis to project
         coordination - and environments from large scale
         consulting and financial services to small innovative
-        start-ups."
+        start-ups"
             />
             <AboutBubble
               icon={IoIosPeople}
               text="Quick &amp; eager learner with practical experience in
-        learning development languages and software and training
-        others."
+        learning tools &amp; software and training
+        others"
             />
           </Flex>
 
