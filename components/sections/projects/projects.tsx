@@ -63,8 +63,8 @@ export const Projects = (): JSX.Element => {
       <Heading color="white" size="2xl">
         Projects
       </Heading>
-      <Flex justify="center">
-        <SimpleGrid columns={[1, 1, 2]} spacing={5}>
+      <Flex>
+        <SimpleGrid minChildWidth="300px" spacing={5} width="100%">
           {projectData.map(project => (
             <ProjectCard key={project.title} project={project} />
           ))}
@@ -80,7 +80,6 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
     <>
       <ProjectModal isOpen={isOpen} onClose={onClose} project={project} />
       <Card
-        width="350px"
         height="350px"
         _hover={{
           transition: 'all 0.25s',
@@ -88,48 +87,52 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
         }}
         sx={{ transition: 'all 0.25s', transform: 'translateY(5px)' }}
       >
-        <Flex direction="column" width="100%" justify="space-between">
-          <Flex direction="column" width="100%" gap={2}>
-            <Heading fontSize="xl" alignSelf="center" p={1}>
-              {project.title}
-            </Heading>
-            <Text>{project.description}</Text>
-            {project.seeMoreDetailsLink && (
-              <Text>
-                See the{' '}
-                <Link href={project.seeMoreDetailsLink} isExternal>
-                  about page <ExternalLinkIcon />{' '}
-                </Link>
-                for more technical details.
-              </Text>
-            )}
-          </Flex>
-          <Flex gap={8} justify="center">
-            <Link href={project.githubLink} isExternal>
-              <Icon as={IoLogoGithub} boxSize={9} />
-            </Link>
-            {project.projectLink ? (
-              <Link href={project.projectLink} isExternal>
-                <Icon as={ExternalLinkIcon} boxSize={9} />
+        <Flex direction="column" width="100%">
+          <Flex justify="end" align="center" height="100px">
+            <Flex gap={5}>
+              <Link href={project.githubLink} isExternal>
+                <Icon as={IoLogoGithub} boxSize={9} viewBox="0 0 35 35" />
               </Link>
-            ) : (
-              <Button onClick={onOpen} variant="unstyled">
-                <Icon as={ExternalLinkIcon} boxSize={9} />
-              </Button>
-            )}
+              {project.projectLink ? (
+                <Link href={project.projectLink} isExternal>
+                  <Icon as={ExternalLinkIcon} boxSize={9} viewBox="0 0 35 35" />
+                </Link>
+              ) : (
+                <Button onClick={onOpen} variant="unstyled">
+                  <Icon as={ExternalLinkIcon} boxSize={9} viewBox="0 0 35 35" />
+                </Button>
+              )}
+            </Flex>
           </Flex>
-          <Flex columnGap={5} flexWrap="wrap">
-            {project.stack.map((item: string, index: number) => (
-              <Code
-                key={`${item}-${index}`}
-                variant="outline"
-                boxShadow={0}
-                fontSize="xs"
-                p={0}
-              >
-                {item}
-              </Code>
-            ))}
+          <Flex direction="column" justify="space-between" height="100%">
+            <Flex direction="column" width="100%" gap={2} justify="start">
+              <Heading fontSize="xl" alignSelf="center" p={1}>
+                {project.title}
+              </Heading>
+              <Text>{project.description}</Text>
+              {project.seeMoreDetailsLink && (
+                <Text>
+                  See the{' '}
+                  <Link href={project.seeMoreDetailsLink} isExternal>
+                    about page <ExternalLinkIcon />{' '}
+                  </Link>
+                  for more technical details.
+                </Text>
+              )}
+            </Flex>
+            <Flex columnGap={5} flexWrap="wrap">
+              {project.stack.map((item: string, index: number) => (
+                <Code
+                  key={`${item}-${index}`}
+                  variant="outline"
+                  boxShadow={0}
+                  fontSize="xs"
+                  p={0}
+                >
+                  {item}
+                </Code>
+              ))}
+            </Flex>
           </Flex>
         </Flex>
       </Card>
