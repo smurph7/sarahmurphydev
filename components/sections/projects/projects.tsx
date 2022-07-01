@@ -149,7 +149,7 @@ const ProjectModal = ({
         <ModalHeader textAlign="center">{project.title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Flex direction="column" align="center" gap={5} p={5}>
+          <Flex direction="column" align="center" gap={1} p={5}>
             <Text textAlign="center">{project.description}</Text>
             {project.additionalInfo && (
               <>
@@ -160,7 +160,7 @@ const ProjectModal = ({
                     </Text>
                   ))}
                 </Stack>
-                <Flex py={5} direction="column">
+                <Flex py={5} direction="column" gap={5}>
                   {project.additionalInfo.images?.map(image => (
                     <NextImage
                       key={image}
