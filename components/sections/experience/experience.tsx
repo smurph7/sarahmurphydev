@@ -130,7 +130,7 @@ const ExperiencePanel = ({
       <Heading fontSize="lg">{position}</Heading>
       <Text fontSize="sm">{date}</Text>
     </Flex>
-    <Flex height="100%" direction="column" gap={2} justify="space-between">
+    <Flex height="100%" direction="column" gap={8} justify="space-between">
       <List points={points} />
       {subprojectSection}
       {stack && <TechStack stack={stack} />}
@@ -172,7 +172,12 @@ const DesktopSubprojects = ({
             pb={8}
             pt={3}
           >
-            <Flex height="100%" direction="column" justify="space-between">
+            <Flex
+              height="100%"
+              direction="column"
+              gap={8}
+              justify="space-between"
+            >
               <Flex direction="column" gap={2} pr={3}>
                 <Text fontSize="sm">{subproject.date}</Text>
                 <List points={subproject.points} />
@@ -212,7 +217,12 @@ const MobileSubprojects = ({
             </Flex>
           </AccordionButton>
           <AccordionPanel>
-            <Flex direction="column" height="100%" justify="space-between">
+            <Flex
+              direction="column"
+              height="100%"
+              gap={8}
+              justify="space-between"
+            >
               <Flex direction="column" gap={2} pr={3}>
                 <Text fontSize="sm">{subproject.date}</Text>
                 <List points={subproject.points} />
@@ -263,7 +273,7 @@ const TechStack = ({
       alignSelf={isTablet ? 'start' : 'end'}
       align={isTablet ? 'start' : 'end'}
     >
-      <Flex gap="4px" wrap="wrap" fontSize="xs" align="end">
+      <Flex gap={2} wrap="wrap" fontSize="xs" align="end">
         {stack?.map((tech, index) => (
           <>
             {index !== 0 && (
