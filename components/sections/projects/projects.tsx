@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import NextImage from 'next/image';
-import { IoLogoGithub } from 'react-icons/io5';
+import { IoLogoGithub } from 'react-icons/io5'; 
 
 import { Card } from '~/components';
 

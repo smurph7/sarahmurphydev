@@ -12,7 +12,8 @@ import {
   Contact,
   Home,
   Logo,
-  Section
+  Section,
+  Footer
 } from '~/components';
 import { MOBILE_MEDIA_QUERY } from '~/constants';
 
@@ -55,6 +56,7 @@ const SitePage: NextPage = () => {
             duration: 5000
           }}
         />
+        <Footer />
       </Box>
     </>
   );
