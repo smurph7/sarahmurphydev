@@ -41,7 +41,7 @@ const SitePage: NextPage = () => {
         <Section id="about">
           <AboutMe />
         </Section>
-        <Section id="experience" justify="start" pt={16}>
+        <Section id="experience" justify="start" py={16} minHeight="auto">
           <Experience />
         </Section>
         <Section id="projects">
