@@ -29,7 +29,7 @@ export const experience: ExperienceData[] = [
     points: [],
     subprojects: [
       {
-        title: 'Service Mesh',
+        title: 'Service Mesh Research',
         date: 'May - July 2020',
         points: [
           'In order to help the company grow its capabilities, form opinions and develop best practices, I researched & presented findings to ThoughtWorks Australia on Service Mesh, which is rapidly becoming the standard for micro-service implementations.'
@@ -37,7 +37,7 @@ export const experience: ExperienceData[] = [
         stack: ['Docker', 'Kubernetes', 'Istio', 'AWS']
       },
       {
-        title: 'The Greens',
+        title: 'The Australian Greens',
         date: 'March - April 2020',
         points: [
           "Analysed the political party's volunteer rostering and scheduling application, which had been developed years before in a now obsolete language AngularJS",
@@ -46,10 +46,10 @@ export const experience: ExperienceData[] = [
         ]
       },
       {
-        title: 'Westpac',
+        title: 'Westpac Bank Australia',
         date: 'September 2019 - February 2020',
         points: [
-          'Created a localised experience with a global digital banking platform (10x) and a fraud-prevention platform (FrankieOne) through testing the APIs, allowing Westpac to understand how they could best achieve a Banking as a Service offering.',
+          'Created a localised experience with a global digital banking platform (10x) and a fraud-prevention platform (FrankieOne) through testing the APIs, allowing Westpac to understand how they could best achieve a Banking as a Service offering',
           'Sole developer of a proof-of-concept mobile banking app used to test the APIs, built with React Native and deployed to both iOS and Android devices throughout development, allowing the broader team to get a feel for the available features',
           'Monitored the stability of APIs using AWS CloudWatch',
           "Provided a gap analysis of the platform's current developer experience with recommendations that were then implemented"
@@ -57,17 +57,17 @@ export const experience: ExperienceData[] = [
         stack: ['React Native', 'Jest']
       },
       {
-        title: 'Suncorp',
+        title: 'Suncorp Insurance',
         date: 'April 2019 - July 2020',
         points: [
-          'Delivered a recreated motor insurance sales application with a focus on improving the user experience',
+          "Delivered a recreated motor insurance sales application for Suncorp's brand APIA with a focus on improving the user experience",
           'Used Test Driven Development with React, Redux and Jest to create a user-friendly interface to simplify the application process for customers',
           'Worked closely with QAs to identify technical dependencies, prioritise stories, and provide testing support'
         ],
         stack: ['React', 'Redux', 'Jest', 'Java']
       },
       {
-        title: 'TW University',
+        title: 'ThoughtWorks University',
         date: 'February 2019 - April 2020',
         points: [
           'An immersive learning experience where graduates from around the world meet in India to learn best programming practices, security and consultancy skills whilst delivering an ecommerce project in small teams.',
@@ -94,7 +94,7 @@ export const experience: ExperienceData[] = [
     position: 'Systems Support at Opportune',
     date: 'February 2018 - February 2019',
     points: [
-      'As the only IT member of staff at this rapidly evolving start-up, I supported the technology on which the company operates, including an e-learning platform for students, a Customer Relationship Management system for sales and the reporting software that sits behind them.',
+      'As the only IT member of staff at this rapidly evolving start-up, I supported the technology on which the company operates, including an e-learning platform for students, a Customer Relationship Management system for sales and the reporting software that sits behind them',
       'Set up a new course on the e-learning platform, moving students from paper-based to web-based learning activities, and creating a foundation on which future courses were based, making adding new courses faster and more efficient',
       'Tested application readiness for system changes going live',
       'Trained the sales team in the new CRM which increased their productivity',
