@@ -25,6 +25,8 @@ const SitePage: NextPage = () => {
       <Head>
         <title>Sarah Murphy</title>
         <link rel="icon" href="/static/sm-logo-250px.png" />
+        <html lang="en" />
+        <meta name="description" content="Sarah Murphy Portfolio Website" />
       </Head>
       <Sidebar />
       <Box
