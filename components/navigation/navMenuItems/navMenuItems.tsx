@@ -15,7 +15,6 @@ import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 import { NavItem } from '..';
 import { Logo } from '~/components';
 import { MOBILE_MEDIA_QUERY } from '~/constants';
-import { useIsPageLoaded } from 'components/hooks/useIsPageLoaded';
 
 export const navItems = [
   { title: 'About Me', linkId: 'about' },
@@ -51,12 +50,11 @@ export const NavMenuItems = ({
   toggle?: () => void;
 }): JSX.Element => {
   const [isMobile] = useMediaQuery(MOBILE_MEDIA_QUERY);
-  const isPageLoaded = useIsPageLoaded();
 
   return (
     <Stack gap={5}>
       <Flex direction="column" gap={5}>
-        {isMobile && isPageLoaded && <LogoLink toggle={toggle} />}
+        {isMobile && <LogoLink toggle={toggle} />}
         <Flex direction="column" gap={1}>
           <List>
             {navItems.map(navItem => (
