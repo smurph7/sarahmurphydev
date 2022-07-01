@@ -50,6 +50,7 @@ export const Experience = (): JSX.Element => {
                   <AccordionButton
                     bg="whiteAlpha.400"
                     borderRadius="md"
+                    height={14}
                     _expanded={{ bg: 'whiteAlpha.700' }}
                   >
                     <Flex width="100%" justify="space-between">
