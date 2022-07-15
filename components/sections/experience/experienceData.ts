@@ -6,10 +6,11 @@ export const experience: ExperienceData[] = [
     position: 'Front End Developer at Metcash',
     date: 'August 2020 - January 2022',
     points: [
+      "Metcash provides merchandising, operational and marketing support to Australia's most successful independent retail brands including IGA supermarkets. Metcash has developed an online shopping platform for IGA. Our team of three created a headless JAMstack e-commerce environment to gain creative freedom.",
       'Developed a fully functional online shop for IGA Supermarkets in a headless JAMstack e-commerce environment using Next.js, allowing each independent store to provide their own offerings',
       'Implemented Segment Analytics to build a foundation for a personalised shopping experience',
       'Created a responsive site, with improvements in usability, SEO and performance',
-      "Worked as the grocery API platform's first headless client to understand their APIs and requirements and to identify and fix issues"
+      "Worked as the grocery API platform's (based in Ireland) first headless client to understand their APIs and requirements and to identify and fix issues"
     ],
     stack: [
       'Next.js',
@@ -30,15 +31,13 @@ export const experience: ExperienceData[] = [
     subprojects: [
       {
         title: 'Service Mesh Research',
-        date: 'May - July 2020',
         points: [
-          'In order to help the company grow its capabilities, form opinions and develop best practices, I researched & presented findings to ThoughtWorks Australia on Service Mesh, which is rapidly becoming the standard for micro-service implementations.'
+          'To help the company grow its capabilities, form opinions and develop best practices, I was tasked with researching and then presenting the findings to ThoughtWorks Australia on Service Mesh, which is rapidly becoming the standard for micro-service implementations.'
         ],
         stack: ['Docker', 'Kubernetes', 'Istio', 'AWS']
       },
       {
         title: 'The Australian Greens',
-        date: 'March - April 2020',
         points: [
           "Analysed the political party's volunteer rostering and scheduling application, which had been developed years before in a now obsolete language AngularJS",
           'Researched solutions and presented the findings to non-technical stakeholders',
@@ -47,7 +46,6 @@ export const experience: ExperienceData[] = [
       },
       {
         title: 'Westpac Bank Australia',
-        date: 'September 2019 - February 2020',
         points: [
           'Created a localised experience with a global digital banking platform (10x) and a fraud-prevention platform (FrankieOne) through testing the APIs, allowing Westpac to understand how they could best achieve a Banking as a Service offering',
           'Sole developer of a proof-of-concept mobile banking app used to test the APIs, built with React Native and deployed to both iOS and Android devices throughout development, allowing the broader team to get a feel for the available features',
@@ -58,17 +56,24 @@ export const experience: ExperienceData[] = [
       },
       {
         title: 'Suncorp Insurance',
-        date: 'April 2019 - July 2020',
         points: [
           "Delivered a recreated motor insurance sales application for Suncorp's brand APIA with a focus on improving the user experience",
-          'Used Test Driven Development with React, Redux and Jest to create a user-friendly interface to simplify the application process for customers',
+          'Using Test Driven Development, we created a user-friendly interface which simplified the application process for customers',
           'Worked closely with QAs to identify technical dependencies, prioritise stories, and provide testing support'
         ],
         stack: ['React', 'Redux', 'Jest', 'Java']
       },
       {
+        title: 'Level Up',
+        points: [
+          'LevelUp is a series of classes and workshops for students who want to gain real-world experience. It is a not-for-profit initiative run by ThoughtWorks volunteers.',
+          'My role included leading a team of 9 developers, business analysts and an experience designer through building a project whilst focusing on Test Driven Development, Continuous Delivery and Pair Programming',
+          'Worked directly with the developers and facilitated workshops, presentations and retrospectives',
+          'Received outstanding feedback from the students for my contribution to the leadership of the program'
+        ]
+      },
+      {
         title: 'ThoughtWorks University',
-        date: 'February 2019 - April 2020',
         points: [
           'An immersive learning experience where graduates from around the world meet in India to learn best programming practices, security and consultancy skills whilst delivering an ecommerce project in small teams.',
           'Used agile principles, Test Driven Development, Continuous Integration / Continuous Delivery to improve and add new features to an existing full stack web sales application',
@@ -76,17 +81,6 @@ export const experience: ExperienceData[] = [
         ],
         stack: ['Java', 'JavaScript', 'HTML', 'CSS', 'Jest', 'SQL']
       }
-    ]
-  },
-  {
-    company: 'Level Up',
-    position: 'Software Developer Trainer',
-    date: 'October - November 2019',
-    points: [
-      'LevelUp is a series of classes and workshops for students who want to gain real-world experience. It is a not-for-profit initiative run by ThoughtWorks volunteers.',
-      'Co-led a team of 9 developers, business analysts and an experience designer',
-      'Presented on Test Driven Development, Continuous Delivery and pair programming, paired with developers and facilitated workshops & retrospectives',
-      'Received outstanding feedback from the students for my contribution to the leadership of the program'
     ]
   },
   {
@@ -114,10 +108,7 @@ export const experience: ExperienceData[] = [
     position: 'Project Coordinator (Intern) at Insurance Australia Group (IAG)',
     date: 'February - June 2016',
     points: [
-      'Worked on Business Processing Offshoring Program - a multi-vendor initiative with sites in India and the Philippines, selecting strategic offshore service providers and preparing for the transition of business functions',
-      'Documented and tracked Risks & Issues in Jira',
-      'Delivered training in Jira & Confluence to the project team',
-      'Documented workshops & meetings, general admin, event organisation'
+      'IAG is an Australian multi-brand insurance company. In this role, I supported the Business Processing Offshoring program with tasks including Risk & Issue documentation & tracking and delivering training to the team on Jira & Confluence. IAG was undergoing selection for their strategic offshore service providers with sites in India and the Philippines and preparing for the transition of business functions.'
     ]
   },
   {
