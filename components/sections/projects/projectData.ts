@@ -8,21 +8,6 @@ export const projectData = [
     stack: ['React', 'Redux', 'Jest', 'Java']
   },
   {
-    title: "Murphy's Movies",
-    description:
-      'Find trending and upcoming movies, search for a specific title, and save your favourites.',
-    seeMoreDetailsLink: 'https://murphys-movies.vercel.app/about',
-    githubLink: 'https://github.com/smurph7/movies',
-    projectLink: 'https://murphys-movies.vercel.app',
-    stack: [
-      'Next.js',
-      'React Query',
-      'React Testing Library',
-      'Stitches',
-      'Auth 0'
-    ]
-  },
-  {
     title: 'Sarah Murphy',
     description:
       "A website about me. The one you're on right now. You can check out the source code on Github.",
@@ -85,3 +70,21 @@ export const projectData = [
     }
   }
 ];
+
+export const showcaseProject = {
+  showcaseDescription:
+    "Murphy's Movies was built with a focus on front-end development and utilisation of APIs, putting together some of the latest skills and libraries I've been learning. I worked using Continuous Integration and Test Driven Development, which helped to design the components as I built them and to detect errors early.",
+  title: "Murphy's Movies",
+  description:
+    'Find trending and upcoming movies, search for a specific title, and save your favourites.',
+  seeMoreDetailsLink: 'https://murphys-movies.vercel.app/about',
+  githubLink: 'https://github.com/smurph7/movies',
+  projectLink: 'https://murphys-movies.vercel.app',
+  stack: [
+    'Next.js',
+    'React Query',
+    'React Testing Library',
+    'Stitches',
+    'Auth 0'
+  ]
+};

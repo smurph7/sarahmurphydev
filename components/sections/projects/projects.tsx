@@ -15,7 +15,8 @@ import {
   ModalCloseButton,
   useDisclosure,
   Button,
-  Stack
+  Stack,
+  Divider
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import NextImage from 'next/image';
@@ -23,7 +24,7 @@ import { IoLogoGithub } from 'react-icons/io5';
 
 import { Card } from '~/components';
 
-import { projectData } from './projectData';
+import { projectData, showcaseProject } from './projectData';
 
 type ProjectProps = {
   title: string;
@@ -35,6 +36,8 @@ type ProjectProps = {
   additionalInfo?: { text?: string[]; images?: string[] };
 };
 
+type ShowcaseProps = ProjectProps & { showcaseDescription?: string };
+
 export const Projects = (): JSX.Element => {
   return (
     <Flex direction="column" gap={5}>
@@ -44,6 +47,8 @@ export const Projects = (): JSX.Element => {
       <Heading color="white" fontSize="lg" fontStyle="italic">
         A few things that I&apos;ve been working on
       </Heading>
+      <Showcase />
+      <Divider height={2} borderBottomWidth={2} borderStyle="dashed" />
       <Flex>
         <SimpleGrid minChildWidth={['300px', '350px']} spacing={5} width="100%">
           {projectData.map(project => (
@@ -51,6 +56,20 @@ export const Projects = (): JSX.Element => {
           ))}
         </SimpleGrid>
       </Flex>
+    </Flex>
+  );
+};
+
+const Showcase = (): JSX.Element => {
+  return (
+    <Flex direction="column" gap={4}>
+      <Flex direction="column" gap={2}>
+        <Heading color="teal.500" size="lg">
+          Showcase Project
+        </Heading>
+        <Text>{showcaseProject.showcaseDescription}</Text>
+      </Flex>
+      <ProjectCard project={showcaseProject} />
     </Flex>
   );
 };
@@ -108,7 +127,11 @@ const ProjectCard = ({ project }: { project: ProjectProps }): JSX.Element => {
               {project.seeMoreDetailsLink && (
                 <Text>
                   See the{' '}
-                  <Link href={project.seeMoreDetailsLink} isExternal>
+                  <Link
+                    href={project.seeMoreDetailsLink}
+                    isExternal
+                    color="teal.700"
+                  >
                     about page <ExternalLinkIcon />{' '}
                   </Link>
                   for more technical details.
