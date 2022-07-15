@@ -43,9 +43,11 @@ export const AboutMe = (): JSX.Element => (
           width={['100%', '100%', '100%', '100%', '80%']}
         >
           <Text color="navy" fontSize="xl">
-            Hey, I&apos;m Sarah. I am passionate about building responsive &amp;
-            user-friendly web apps. I love to learn and am interested in working
-            on challenging projects with positive people.
+            Hey, I&apos;m Sarah. I am a software developer who is passionate
+            about building responsive &amp; user-friendly web apps and has experience
+            working with a wide range of technologies and domains. I love to
+            learn and am interested in working on challenging projects with
+            positive people.
           </Text>
         </Flex>
         <Flex
@@ -59,17 +61,13 @@ export const AboutMe = (): JSX.Element => (
           >
             <AboutBubble
               icon={GiBrain}
-              text="Excellent capability in terms of technology skills and
-            knowledge, with practical application in a business
-            environment"
+              text="Excellent technical skills with practical application in a business environment"
             />
             <AboutBubble
               icon={IoBusiness}
-              text="Considerable experience in a variety of roles - from
-        technical to business &amp; systems analysis to project
-        coordination - and environments from large scale
-        consulting and financial services to small innovative
-        start-ups"
+              text="Considerable experience in a variety of roles from
+        technical to Business &amp; Systems Analysis to project
+        coordination and customer facing roles"
             />
             <AboutBubble
               icon={IoIosPeople}
