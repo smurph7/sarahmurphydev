@@ -77,7 +77,7 @@ export const Experience = (): JSX.Element => {
           <Card
             pl={1}
             maxWidth="1000px"
-            minHeight={['525px', '525px', '600px']}
+            minHeight={['525px', '525px', '525px', '600px']}
           >
             <Tabs width="100%" orientation="vertical" size="lg" isFitted>
               <TabList borderLeft="0px">
@@ -166,7 +166,7 @@ const DesktopSubprojects = ({
           <Tab
             key={`${subproject.title}-${index}`}
             color="navy"
-            fontSize="md"
+            fontSize="sm"
             _active={{ bg: 'transparent' }}
             _focus={{ outline: 'none' }}
             _selected={{ borderColor: 'freshLemon' }}
@@ -185,13 +185,12 @@ const DesktopSubprojects = ({
             pt={3}
           >
             <Flex
-              height="100%"
+              height="95%"
               direction="column"
               gap={8}
               justify="space-between"
             >
               <Flex direction="column" gap={2} pr={3}>
-                <Text fontSize="sm">{subproject.date}</Text>
                 <List points={subproject.points} />
               </Flex>
               {subproject.stack && <TechStack stack={subproject.stack} />}
@@ -236,7 +235,6 @@ const MobileSubprojects = ({
               justify="space-between"
             >
               <Flex direction="column" gap={2} pr={3}>
-                <Text fontSize="sm">{subproject.date}</Text>
                 <List points={subproject.points} />
               </Flex>
               {subproject.stack ? (
@@ -262,13 +260,13 @@ const List = ({
   }
 
   return points.length > 1 ? (
-    <UnorderedList spacing={2} fontSize='md'>
+    <UnorderedList spacing={2} fontSize="md">
       {points.map((point, index) => (
         <ListItem key={`point-${index}`}>{point}</ListItem>
       ))}
     </UnorderedList>
   ) : (
-    <Text fontSize='md'>{points[0]}</Text>
+    <Text fontSize="md">{points[0]}</Text>
   );
 };
 
