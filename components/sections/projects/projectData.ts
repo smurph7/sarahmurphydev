@@ -1,5 +1,12 @@
 export const projectData = [
   {
+    title: 'SiteSpruce',
+    description:
+      'Website audit service for small businesses, focusing on simple changes with a big impact - helping improve trust, usability, and performance without rebuilding from scratch.',
+    projectLink: 'https://sitespruce.ie',
+    stack: ['TypeScript', 'Next.js']
+  },
+  {
     title: 'Suncorp Motor Insurance - APIA',
     description:
       'Recreated a motor insurance sales application with a focus on improving the user experience and simplifying the application process.',
